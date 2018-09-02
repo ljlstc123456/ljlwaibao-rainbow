@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" @click.self="close">
+  <div class="modal">
     <div class="dialog animated slideInDown">
       <img :src="src[type]" alt="">
       <div class="footer">

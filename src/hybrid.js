@@ -27,10 +27,10 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
     a = "android";
 }
 export default function(opts) {
-  if (a == "pc") {
-    //console.log('mock data');
-    return mockHybrid(opts);
-  }
+  // if (a == "pc") {
+  //   //console.log('mock data');
+  //   return mockHybrid(opts);
+  // }
   const callback = opts.callback,
   callbackname = 'hybrid_callback_' + new Date().getTime();
 
@@ -55,7 +55,7 @@ export default function(opts) {
     }
     opts.callback = callbackname;
   }
-  
+  //console.log(opts) ;
   if(a == "ios"){
     window.webkit.messageHandlers.nativeBridge.postMessage(JSON.stringify(opts));
   }else if(a == "android"){
