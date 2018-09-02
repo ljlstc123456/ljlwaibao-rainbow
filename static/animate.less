@@ -1,0 +1,102 @@
+.animated {
+  animation-duration: .5s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInDown {
+  from {
+   
+            transform: translate3d(0, -100%, 0);
+            visibility: hidden;
+  }
+
+  to {
+            transform: translate3d(0, 0, 0);
+            visibility: visible;
+  }
+}
+
+.slideInDown {
+          animation-name: slideInDown;
+}
+@keyframes roll {
+  from {
+   
+            transform: rotate(0deg);
+  }
+
+  to {
+            transform: rotate(360deg);
+  }
+}
+.roll{
+  animation: roll 1s infinite linear;
+}
+@keyframes downup {
+  from {
+   
+            transform: translate3d(0, 0, 0);
+  }
+
+  to {
+  
+            transform: translate3d(0, 10%, 0);
+  }
+}
+
+
+@keyframes rotate {
+  from {
+            
+            transform: none;
+  }
+
+  to {
+            transform: rotate3d(0, 0, 1, 50deg);
+  }
+}
+@keyframes rotate1 {
+  from {
+            
+            transform: none;
+            transform: rotate3d(0, 0, 1, -10deg);
+  }
+  
+  to {
+            transform: rotate3d(0, 0, 1, -30deg);
+  }
+}
+
+@keyframes leftright {
+  from {
+            
+            transform: translate3d(0, 0, 0);
+  }
+  
+  to {
+            transform: translate3d(50%, 0, 0);
+  }
+}
+
+.animateb1{
+          animation: downup 2s alternate infinite ease-in-out;
+}
+.animateb2{
+          animation: downup 1s 1s alternate infinite ease-in-out;
+}
+.animateb3{
+  transform-origin: right bottom;
+          animation: rotate 2s alternate infinite ease-in-out;
+}
+
+.animateb4{
+  transform-origin: -20px 110px;
+          animation: rotate1 2s .5s alternate infinite ease-in-out ;
+}
+.animateb5{
+          animation: leftright 6s alternate infinite;
+}
+
+.animateb6{
+          animation: leftright 3s alternate infinite ease-in-out;
+}

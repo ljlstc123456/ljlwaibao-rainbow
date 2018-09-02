@@ -1,0 +1,25 @@
+@psdWidth:768;  
+  
+//基准值  
+@baseSize:100;  
+  
+//需要适配的设备宽度,可自行添加  
+@deviceWidthList:320,360,375,414,640,768,1080,1125,1366,2160,3840;  
+  
+
+.adapterFuc(@index)when (@index<= length(@deviceWidthList)){  
+  
+@media(min-height:((extract(@deviceWidthList,@index)-35)*1PX)) {  
+	html{  
+	  
+	font-size:extract(@deviceWidthList,@index)/@psdWidth*@baseSize*1PX !important;  
+	  
+	}  
+}  
+  
+.adapterFuc(@index+1);  
+  
+}  
+  
+//调用  
+.adapterFuc(1); 
