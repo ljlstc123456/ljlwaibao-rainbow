@@ -23,8 +23,8 @@
       </div>
       <div class="items" v-if="active==7">
         <div class="img" v-for="(item,n) in active7Arr" @click="sendCode(active7Code[n],active7Codem[n])">
-          <div>{{item}}</div>
-          <div>{{item}}</div>
+          <div>{{n}}</div>
+          <div>{{n}}</div>
         </div>
       </div>
       <div class="items" v-if="active==8">
@@ -209,7 +209,7 @@ export default {
   .items {
     white-space: nowrap;
     padding: 0 35px;
-    font-family: PF,PF1 !important; 
+   /*  font-family: PF,PF1 !important;  */
     img {
       height: 434px;
       margin: 0 35px;

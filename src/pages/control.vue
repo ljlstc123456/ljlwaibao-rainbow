@@ -69,8 +69,8 @@ export default {
       machineBIndex:-1,
       machineAB:-1,
       colorCode:['E1FF0000','E1FFFFFF','E1FFFF00','E100FF00','E10000FF','E1FF00FF','E1FF8080'],
-      musicCode:['B1111FFF','B1112FFF','B1113FFF','B1114FFF','B1115FFF','B1116FFF','B1117FFF'],
-      imgCode:['C130FFFF','C131FFFF','C132FFFF','C133FFFF','C134FFFF','C135FFFF','C136FFFF']
+      musicCode:['B1101001','B1101002','B1101003','B1101004','B1101005','B1101006','B1101007'],
+      imgCode:  ['C130FFFF','C131FFFF','C132FFFF','C133FFFF','C134FFFF','C135FFFF','C136FFFF']
       // transitionName:"fade",
       // active:1
     }
