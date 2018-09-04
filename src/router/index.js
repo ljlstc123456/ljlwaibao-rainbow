@@ -12,15 +12,16 @@ import moreImg  from '@/pages/moreImg'
 import create  from '@/pages/create'
 import demo  from '@/pages/demo'
 import demoDetail from '@/pages/demoDetail'
+import test from '@/pages/test'
 export default new Router({
   //mode:"history",
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'index',
-    //   component: index,
-    //   meta: { title: '引导页'}
-    // },
+    {
+      path: '/test',
+      name: 'test',
+      component: test,
+      meta: { title: '引导页'}
+    },
     {
       path: '/homem',
       name: 'homem',
