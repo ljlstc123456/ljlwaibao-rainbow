@@ -63,11 +63,13 @@ export default {
   
   methods:{
     scan(){
+      console.log(123) ;
       this.scanError = false ;
       this.$hybrid({
           "action":"bluetooth",
           "params":"{}",
           "callback":(data)=>{
+            
             if(data.length<=0){
               this.scanError = true;
             }else{
@@ -106,7 +108,7 @@ export default {
             this.list[index].status = status ;
             this.list = this.list.slice(0) ;
             setTimeout(()=>{
-              this.close();
+              //this.close();
             },2000) ;
            }
         }) ;
@@ -180,15 +182,15 @@ export default {
       &:active{
         background: #eee;
       }
-      span.active{
-        background-image: url('../../static/imgs/link.png');
-      }
       span:last-child{
         display: inline-block;
         width: 73px;
         height: 56px;
         background-size: 100% 100%;
         background-image: url('../../static/imgs/unlink.png');
+        &.active{
+          background-image: url('../../static/imgs/link.png');
+        }
       }
     }
   }

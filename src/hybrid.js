@@ -27,10 +27,10 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
     a = "android";
 }
 export default function(opts) {
-  // if (a == "pc") {
-  //   //console.log('mock data');
-  //   return mockHybrid(opts);
-  // }
+  if (a == "pc") {
+    //console.log('mock data');
+    return mockHybrid(opts);
+  }
   const callback = opts.callback,
   callbackname = 'hybrid_callback_' + new Date().getTime();
 

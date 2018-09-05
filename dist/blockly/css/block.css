@@ -621,7 +621,7 @@ html{font-size:41.66666667px}
 	background: #eee;
 }
 
-.bluemodal .dialog .list span.active{
+.bluemodal .dialog .list span:last-child.active{
 	background-image: url('../img/link.png');
 }
 .bluemodal .dialog .list span:last-child{
