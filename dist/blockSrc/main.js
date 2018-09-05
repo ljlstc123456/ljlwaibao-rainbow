@@ -270,7 +270,11 @@
           "callback": ""
         });
       },
-      link:function(id, index) {
+      link:function(status,id, index) {
+        if(status == 1){
+          this.unlink() ;
+          return ;
+        }
         this.list.map(function(item) {
           return item.status = 0;
         });

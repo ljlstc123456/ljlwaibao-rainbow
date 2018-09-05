@@ -24,6 +24,7 @@
 </template>
 <script>
 import {offsetLeft,offsetTop} from "../unit.js"
+import codes from "../code.js"
 export default {
   props: {
     visible: {
@@ -122,15 +123,36 @@ export default {
     },
     getResult(){
       let result = "";
+      let code = codes["digit"][41] ;
       if(this.plustext!==""
         &&this.equaltext!==""
         &&this.Atext!==""
         &&this.Btext!==""
         &&this.Atext!=="?"
         &&this.Btext!=="?"){
-        console.log(22) ;
         result = this.Atext+(this.plustext=="+"?this.Btext:0-this.Btext) ;
         this.result =  result;
+
+        if(result>=0){
+          code = codes["digit"][result] ;
+        }
+        this.$hybrid({
+            "action":"send",
+            "params":JSON.stringify({
+              "code":code
+            })
+        }) ;
+
+        setTimeout(()=>{
+          this.$hybrid({
+              "action":"send",
+              "params":JSON.stringify({
+                "code":"B1113002"
+              })
+          }) ;
+        },200) ;
+
+        
       }else{
         this.result = "" ;
       }

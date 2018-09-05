@@ -596,7 +596,11 @@ html{font-size:41.66666667px}
         background-color: #b36420;
         border-radius: .05rem;
         
-      }
+}
+ .bluemodal .dialog .content{
+  height: 3.36rem;
+  overflow-y: auto;
+}
  .bluemodal .dialog h2 span:active{
           background-color: #b36420d4;
         }
@@ -615,6 +619,17 @@ html{font-size:41.66666667px}
 }
 .bluemodal .dialog .list:active{
 	background: #eee;
+}
+
+.bluemodal .dialog .list span.active{
+	background-image: url('../img/link.png');
+}
+.bluemodal .dialog .list span:last-child{
+	display: inline-block;
+	width: .73rem;
+	height: .56rem;
+	background-size: 100% 100%;
+	background-image: url('../img/unlink.png');
 }
 .modal .dialog .content{
   display: flex;
@@ -716,11 +731,11 @@ html{font-size:41.66666667px}
     width: 1.18rem;
     background: #20D94E;
     height: 3.86rem;
-    overflow: hidden;
+    overflow: auto;
 }
-#imgSelect.modaltwo .dialog .content .left{
+/* #imgSelect.modaltwo .dialog .content .left{
 	height: 5.85rem;
-}
+} */
 #musicSelect .dialog .content .left{
 	background: #A468F5;
 }
@@ -757,9 +772,9 @@ html{font-size:41.66666667px}
 	flex-wrap: wrap;
 	overflow-y: scroll;
 }
-#imgSelect.modaltwo .dialog .content .right{
+/* #imgSelect.modaltwo .dialog .content .right{
 	height: 5.85rem;
-}
+} */
 #musicSelect .dialog .content .right
 {
 	background: #CEAAFF;

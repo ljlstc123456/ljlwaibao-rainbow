@@ -1,10 +1,12 @@
 <template>
   <div class="modal" v-if="visible" @click.self="close">
     <div class="dialog animated slideInDown">
-      <h2>蓝牙连接 <span @click="unlink">断开连接</span></h2>
-      <div class="list" v-for="(item,index) in list" @click="link(item.peripheralID,index)">
-        <span>{{item.name}}</span>
-        <span>{{item.status == 1?"已连接":''}}</span>
+      <h2>蓝牙连接</h2>
+      <div class="content" v-if="list.length>0">
+        <div class="list" v-for="(item,index) in list" @click="link(item.status,item.peripheralID,index)">
+          <span>{{item.name}}</span>
+          <span :class="item.status == 1?'active':''"></span>
+        </div>
       </div>
       <div class="nodata" v-if="list.length<=0">
         <div v-if="!scanError">
@@ -86,7 +88,11 @@ export default {
         "callback":"test"
       }) ;
     },
-    link(id,index){
+    link(status,id,index){
+      if(status == 1){
+        this.unlink() ;
+        return ;
+      }
       this.list.map((item)=>{
         return item.status = 0;
       }) ;
@@ -133,6 +139,10 @@ export default {
     background: #fff;
     position: relative;
     overflow: auto;
+    .content{
+      height: 336px;
+      overflow-y: auto;
+    }
     .nodata{
       position: absolute;
       top: 64px;
@@ -157,20 +167,6 @@ export default {
       font-family: ptFont,ptFont1;
       background-image: linear-gradient(-180deg, #F89627 0%, #FF7B08 99%);
       border-radius: 24px 24px 0 0;
-      span{
-        position: absolute;
-        right: 30px;
-        top: 15px;
-        display: inline-block;
-        line-height: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #b36420;
-        border-radius: 5px;
-        &:active{
-          background-color: #b36420d4;
-        }
-      }
     }
     .list{
       font-size: 24px;
@@ -183,6 +179,16 @@ export default {
       background: #fff;
       &:active{
         background: #eee;
+      }
+      span.active{
+        background-image: url('../../static/imgs/link.png');
+      }
+      span:last-child{
+        display: inline-block;
+        width: 73px;
+        height: 56px;
+        background-size: 100% 100%;
+        background-image: url('../../static/imgs/unlink.png');
       }
     }
   }

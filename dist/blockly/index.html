@@ -83,10 +83,12 @@
   <!-- 连接蓝牙窗口 -->
   <div id="openBlue" v-cloak class="bluemodal" v-if="visible" @click.self="close">
     <div class="dialog animated slideInDown">
-      <h2>蓝牙连接<span @click="unlink">断开连接</span></h2>
-      <div class="list" v-for="(item,index) in list" @click="link(item.peripheralID,index)">
-        <span>{{item.name}}</span>
-        <span>{{item.status == 1?"已连接":''}}</span>
+      <h2>蓝牙连接</h2>
+      <div class="content" v-if="list.length>0">
+        <div class="list" v-for="(item,index) in list" @click="link(item.status,item.peripheralID,index)">
+          <span>{{item.name}}</span>
+          <span :class="item.status == 1?'active':''"></span>
+        </div>
       </div>
       <div class="nodata" v-if="list.length<=0">
         <div v-if="!scanError">

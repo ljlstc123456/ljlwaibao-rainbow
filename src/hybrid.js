@@ -55,7 +55,7 @@ export default function(opts) {
     }
     opts.callback = callbackname;
   }
-  console.log(opts) ;
+  //console.log(opts) ;
   if(a == "ios"){
     window.webkit.messageHandlers.nativeBridge.postMessage(JSON.stringify(opts));
   }else if(a == "android"){
