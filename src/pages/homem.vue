@@ -1,6 +1,6 @@
 <template>
   <div class="main bgperfect">
-    <div class="bgMusic bgperfect" :class="play?'':'play'" @click="changeMusic"></div>
+    <div class="bgMusic bgperfect" :class="play?'play':''" @click="changeMusic"></div>
     <div class="bluetooth bgperfect" @click="changeBlue"></div>
     <div class="title">
       <img src="../../static/imgs/home1/title.png" alt="">
@@ -39,6 +39,8 @@ export default {
     ])
   },
   created() {
+    //window.setMoble(true) ;
+    window.isMobile = true;
     //this.changeActive(this.$route.name) ;
   },
   components: {

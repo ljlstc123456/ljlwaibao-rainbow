@@ -1,6 +1,6 @@
 <template>
   <div class="main bgperfect">
-    <div class="bgMusic bgperfect" :class="play?'':'play'" @click="changeMusic"></div>
+    <div class="bgMusic bgperfect" :class="play?'play':''" @click="changeMusic"></div>
     <div class="bluetooth bgperfect" @click="changeBlue"></div>
     <div class="title">
       <img src="../../static/imgs/home/title.png" alt="">

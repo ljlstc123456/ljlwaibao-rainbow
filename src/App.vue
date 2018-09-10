@@ -51,13 +51,6 @@ export default {
         }
         this.visibleInner = true ;
       };
-      
-      window.stopAction = ()=>{
-        if(this.$route.name == "demoDetail"){
-          this.$refs["inner"].resetInterpreter() ;
-        }
-      };
-      
       // var audio = this.$refs["audio"];
       window.playMusic = ()=>{
         this.$hybrid({

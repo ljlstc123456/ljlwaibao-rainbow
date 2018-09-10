@@ -1,7 +1,7 @@
 <template>
   <div class="bg bgperfect">
     <back></back>  
-    <div class="myswiper" :style="{backgroundImage: 'url(../../static/imgs/demo/detail'+index+'.png)'}">
+    <div class="myswiper" :style="{backgroundImage:'url('+bgUrl[index]+')'}">
       <i class="icon" :class="active==0?'round':'play'" @click="run"></i>
     </div>
 
@@ -19,7 +19,8 @@ export default {
     return {
       active:0,
       tipsVisble:false,
-      index:1
+      index:1,
+      bgUrl:["",require('../../static/imgs/demo/detail1.png'),require('../../static/imgs/demo/detail2.png'),require('../../static/imgs/demo/detail3.png')]
     }
   },
   computed: {

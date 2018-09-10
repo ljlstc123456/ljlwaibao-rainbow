@@ -1,5 +1,5 @@
 <template>
-  <div @touchmove="move($event)" @touchend="end">
+  <div @touchmove="move($event)" @touchend="end" :class="isMobile?'mobile':''">
   	<div class="formula">
   		<div class="A" :class="[hoverA, activeA]">{{Atext}}</div>
   		<div class="plus" :class="[hoverPlus, activePlus]">{{plustext}}</div>
@@ -11,8 +11,8 @@
   		</div>
   		
   	</div>
-    <div class="digit-bar">
-    	<div>
+    <div class="digit-bar" >
+    	<div :class="isMobile?'mobile':''">
     		<span class="plus1"  @touchstart="start($event,'+')">+</span>
     		<span class="reduce" @touchstart="start($event,'-')">-</span>
     		<span class="equal1" @touchstart="start($event,'=')">=</span>
@@ -57,7 +57,8 @@ export default {
       activeEqual:"",
       equaltext:"",
       activeResult:"",
-      result:""
+      result:"",
+      isMobile:window.isMobile||false
     }
   },
   computed: {
@@ -177,6 +178,13 @@ export default {
       this.selectText = n ;
       this.hasDrag = true;
   	},
+    playClick(){
+      this.$hybrid({
+        "action":"click",
+        "params":"{}",
+        "callback":function(){}
+      }) ;
+    },
     end(){
       if(!this.hasDrag){
         return ;
@@ -186,21 +194,25 @@ export default {
         this.Atext = this.selectText ;
         this.activeA = 'active' ;
         this.hoverA = '' ;
+        this.playClick() ;
       }
       if(this.hoverB == 'hover'){
         this.Btext = this.selectText ;
         this.activeB = 'active' ;
         this.hoverB = '' ;
+        this.playClick() ;
       }
       if(this.hoverPlus == 'hover'){
         this.plustext = this.selectText ;
         this.activePlus = this.selectClass =="plus"?'active1':'active2' ;
         this.hoverPlus = '' ;
+        this.playClick() ;
       }
       if(this.hoverEqual == 'hover'){
         this.equaltext = this.selectText ;
         this.activeEqual = 'active' ;
         this.hoverEqual = '' ;
+        this.playClick() ;
       }
       this.selectClass = "" ;
       this.selectText = "" ;
@@ -325,6 +337,11 @@ export default {
   }
 </style>
 <style lang="less" scoped>
+.mobile .select{
+width: 60px;
+    height: 60px;
+  line-height: 60px;
+}
 	.select{
 		position: fixed;
     display: inline-block;
@@ -356,6 +373,14 @@ export default {
       background: #15CAFC;
     }
 	}
+  .mobile .formula{
+    padding-top: 20px;
+    .plus,.equal{
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+    }
+  }
 	.formula{
 		width: 935px;
 		padding-top: 50px;
@@ -417,6 +442,8 @@ export default {
 				}
 			}
 		}
+
+    
 		.plus,.equal{
 			width: 60px;
 			height: 60px;
@@ -462,8 +489,19 @@ export default {
 			border-radius: 16PX;
 			border: 2PX solid #FCB415;
 			padding-top: 20px;
+      &.mobile{
+         width: 950px;
+         height: 190px;
+         span{
+          float: left;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+         }
+      }
 			span{
-				float: left;
+        float: left;
 				display: inline-block;
 				font-size: 26px;
 				width: 40px;

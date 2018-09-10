@@ -4,9 +4,9 @@
     <div class="ptFont title">示例模式</div>
     <div class="myswiper">
       <div class="wrap">
-        <div v-for="n in 3">
-          <img :src="'../../static/imgs/demo/demo1.gif'" alt="">
-          <span @click="go('/home/demo/demoDetail',n)"></span>
+        <div v-for="n in 1">
+          <img :src="url" alt="">
+          <span @click="go('/home/demo/demoStep',n)"></span>
         </div>
       </div>
     </div>
@@ -18,6 +18,7 @@ export default {
   name: 'control',
   data(){
     return {
+      url:require('../../static/imgs/demo/demo1.gif')
     }
   },
   computed: {
