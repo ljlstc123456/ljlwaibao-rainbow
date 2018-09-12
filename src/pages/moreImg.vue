@@ -53,7 +53,7 @@
       <div @click="active = 9"><i class="icon imgm9" :class="active==9?'active':''"></i></div>
       <div @click="active = 7"><i class="icon imgm7" :class="active==7?'active':''"></i></div>
       <div @click="active = 8"><i class="icon imgm8" :class="active==8?'active':''"></i></div>
-      <div @click="active = 10"><i class="icon imgm10" :class="active==10?'active':''"></i></div>
+      <!-- <div @click="active = 10"><i class="icon imgm10" :class="active==10?'active':''"></i></div> -->
     </div>
   </div>
 </template>
