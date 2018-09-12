@@ -125,6 +125,7 @@ export default {
     getResult(){
       let result = "";
       let code = codes["digit"][41] ;
+      console.log(code) ;
       if(this.plustext!==""
         &&this.equaltext!==""
         &&this.Atext!==""

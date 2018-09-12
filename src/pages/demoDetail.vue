@@ -90,7 +90,7 @@ export default {
   i{
     position: absolute;
     right: 80px;
-    bottom: 80px;
+    bottom: -80px;
     transition: .3s all;
     &:active{
       transform: scale(1.1,1.1);

@@ -522,14 +522,14 @@ export default  {
 		"B110D007",
 		"B110D008",
 
-		"B110D001",
-		"B110D002",
-		"B110D003",
-		"B110D004",
-		"B110D005",
-		"B110D006",
-		"B110D007",
-		"B110D008",
+		"B110E001",
+		"B110E002",
+		"B110E003",
+		"B110E004",
+		"B110E005",
+		"B110E006",
+		"B110E007",
+		"B110E008",
 	],
 	letter:[
 		"C108000F",//A
@@ -660,7 +660,7 @@ export default  {
 	  "B1102007",//英雄联盟
 	],
 	texthanzi:["一","二","三","四","五","六","七","八","九","十","木","禾","上","下","土","个","入","大","天","人","火","文","儿","无","口","日","中","了","子","门","月","不","开","目","耳", "头","米","见","白","田","电","也","长","山","出","飞","马","鸟","云","公","车","牛","羊","小","少","巾","牙","尺","毛","卜","又","心","风","力","手","水","广","升","足","走","方", "半","巴","业","本","平","书","自","已","东","西","回","片","皮","生","里","果","几","用","鱼","今","正","雨","两","瓜","衣","来","年","左","右"],
-	textpinyin:["yi",'er','san','si','wu','liu','qi','ba','jiu','shi','mu','he','shang','xia','tu','ge','ru','da','tian','ren','huo','wen','er','wu','kou','ri','zhong','le','zi','men','yue','bu','kai','mu','er','tou','mi','jian','bai','tian','dian','ye','chang','shan','chu','fei','ma','niao','yun','gong','che','niu','yang','shao','xiao','jin','ya','chi','mao','bo','you','xin','feng','li','shou','shui','guang','sheng','zu','zou','fang','ban','ba','ye','ben','ping','shu','zi','ji','dong','xi','hui','pian','pi','sheng','li','guo','ji','yong','yu','jin','zheng','yu','liang','gua','yi','lai','nian','zuo','you'],
+	textpinyin:["yi",'er','san','si','wu','liu','qi','ba','jiu','shi','mu','he','shang','xia','tu','ge','ru','da','tian','ren','huo','wen','er','wu','kou','ri','zhong','le','zi','men','yue','bu','kai','mu','er','tou','mi','jian','bai','tian','dian','ye','chang','shan','chu','fei','ma','niao','yun','gong','che','niu','yang','xiao','shao','jin','ya','chi','mao','bo','you','xin','feng','li','shou','shui','guang','sheng','zu','zou','fang','ban','ba','ye','ben','ping','shu','zi','ji','dong','xi','hui','pian','pi','sheng','li','guo','ji','yong','yu','jin','zheng','yu','liang','gua','yi','lai','nian','zuo','you'],
 	textyinyu:["bike","bus","car","plane","ship","train","truck","barber","boy","daddy","dancer","doctor","driver","girl","mummy","nurse","pupil","singer","teacher","bear","cat","cock","dog","duck","hen","rabbit","tiger","black","blue","brown","green","pink","red","white","yellow","bed","bookcase","cabinet","chair","desk","sofa","stool","table"],
 	textyinbiao:["[baɪk]",
 "[bʌs]",

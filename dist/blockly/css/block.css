@@ -53,6 +53,7 @@
 .blocklyToolboxDiv{
 	transition: all .2s;
 	z-index: 2 !important;
+	overflow-y: hidden !important;
 }
 .blocklyToolboxDiv.leftlh{
 	padding-left: 30px;
@@ -71,13 +72,27 @@ body,#blocklyArea,#blocklyDiv{
 html{font-size:41.66666667px}
 .blocklyTreeRoot{
 	padding-top: 1.4rem;
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.blocklyTreeRoot [role='group']{
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+
 }
 .blocklyTreeRow{
 	width: 1.12rem !important;
 	height: .9rem !important;
 	line-height: 0 !important;
 	padding-right: 0 !important;
-	margin-bottom: .13rem !important;
+	/* margin-bottom: .13rem !important; */
 	border-left: 0 !important;
 }
 .blocklyTreeRow{

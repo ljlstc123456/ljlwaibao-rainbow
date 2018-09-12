@@ -70,7 +70,7 @@ export default {
       machineAB:-1,
       colorCode:['E1FF0000','E1FFFFFF','E1FFFF00','E100FF00','E10000FF','E1FF00FF','E1FF8080'],
       musicCode:['B1101001','B1101002','B1101003','B1101004','B1101005','B1101006','B1101007'],
-      imgCode:  ['C130FFFF','C131FFFF','C132FFFF','C133FFFF','C134FFFF','C135FFFF','C136FFFF']
+      imgCode:  ['C103000F','C103001F','C103002F','C103003F','C103004F','C103005F','C103006F']
       // transitionName:"fade",
       // active:1
     }
@@ -173,6 +173,9 @@ export default {
   transition: all .2s;
   .icon{
     border-radius:36px;
+  }
+  &:nth-child(7){
+    margin-bottom: 0;
   }
   .icon:active,.icon.active{
     transform: scale(1.2, 1.2);
