@@ -85,7 +85,7 @@ export default {
       active6Arr:[],
       active6Code:codes["letter"],
       active6Codem:codes["letterm"],
-      active7Arr:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+      active7Arr:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21],
       active7Code:codes["digit"],
       active7Codem:codes["digitm"],
       active8Arr:codes["texthanzi"],

@@ -53,7 +53,9 @@ export default {
         this.tipsVisble = true ;
         this.$refs.tips.confirm().then(() => {
           this.active = 1;
-          runCode(lastCode) ;
+          runCode(lastCode,()=>{
+            this.active = 0;
+          }) ;
           this.tipsVisble = false;
         }).catch(() => {
           this.tipsVisble = false;

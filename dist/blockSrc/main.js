@@ -4,6 +4,100 @@
   // } catch (e) {
 
   // }
+  window.exitDialog = new Vue({
+    el:'#isExit',
+    data:{
+      visible: false
+    },
+    methods: {
+      ok:function() {
+        window.goback() ;
+        this.visible = false;
+      },
+      show:function() {
+        this.visible = true;
+      }
+    }
+  })
+
+  window.selectProject = new Vue({
+    el: '#projectSelect',
+    data: {
+      visible: false,
+      ready: false,
+      visibleDelete:false,
+      projectlist: [],
+      willDeleteName:""
+    },
+    computed: {
+
+    },
+    watch: {
+      visible:function(curVal, oldVal) {
+        if (curVal) {
+          var that = this;
+          setTimeout(function() {
+            that.ready = true;
+          }, 500);
+        } else {
+          this.ready = false;
+        }
+      }
+    },
+    mounted:function() {
+      this.init()
+    },
+    created:function() {
+
+    },
+    components: {
+      // BottomBar,
+      // jheader
+    },
+
+    methods: {
+      init:function(){
+        this.projectList = JSON.parse(localStorage.getItem("projectList")||'[]')
+        console.log(this.projectList)
+      },
+      close:function() {
+        if (this.ready) {
+          this.visible = false;
+        }
+      },
+      show:function() {
+        this.init() ;
+        this.visible = true;
+      },
+      select:function(name) {
+        var txt = this.projectList.filter(function(i){
+          return i.name == name
+        })[0].txt ;
+        var xml = Blockly.Xml.textToDom(txt);
+        demoWorkspace.clear();
+        Blockly.Xml.domToWorkspace(xml, demoWorkspace);
+        this.close();
+        playMusic() ;
+      },
+      showDelete:function(name){
+        this.willDeleteName = name
+        this.visibleDelete = true
+      },
+      deleteProject:function() {
+        var name = this.willDeleteName
+        var txt = this.projectList.filter(function(i){
+          return i.name != name
+        });
+        this.visibleDelete = false
+        window.localStorage.setItem('projectList', JSON.stringify(txt));
+        saveProject.init()
+        this.init() ;
+      }
+    }
+  });
+
+
+
   window.selectColor = new Vue({
     el: '#colorSelect',
     data: {
@@ -141,10 +235,10 @@
   window.selectMusic = new Vue({
     el: '#musicSelect',
     data: {
-      list: [{ type: "sdw", num: 16 }, { type: "syin", num: 21 }, { type: "sdh", num: 19 }, { type: "syx", num: 7 }],
+      list: [{ type: "sdw", num: 23 }, { type: "syin", num: 21 }, { type: "sdh", num: 21 }, { type: "sjtt", num: 10 },{type:"ssh",num:5}],
       select: 0,
       active: 0,
-      classIcon: ["smenu4", "smenu9", "smenu6", "smenu10"],
+      classIcon: ["smenu4", "smenu9", "smenu6", "smenu10","smenu14"],
       visible: false,
       callback: "",
       ready: false,
@@ -302,6 +396,88 @@
     }
   });
 
+  window.saveProject = new Vue({
+    el: '#saveProject',
+    data: {
+      ready: false,
+      visible:false,
+      name:"",
+      msg:'',
+      projectList:[]
+    },
+    computed: {
+
+    },
+    watch: {
+      visible:function(newQuestion, oldQuestion) {
+        if (newQuestion == true) {
+          var that = this;
+          setTimeout(function() {
+            that.ready = true;
+          }, 500);
+        } else {
+          this.ready = false;
+        }
+      }
+    },
+    mounted:function() {
+      this.init()
+    },
+    created:function() {
+
+    },
+    beforeDestroy:function() {
+
+    },
+    components: {
+      // BottomBar,
+      // jheader
+    },
+
+    methods: {
+      init:function(){
+        this.projectList = JSON.parse(localStorage.getItem("projectList")||'[]')
+      },
+
+      show:function(type){
+        this.visible = true ;
+      },
+      goScroll:function(){
+        window.scrollTo(0,0)
+      },
+      submit:function() {
+       if(this.name==""){
+        this.msg = '请输入项目名称'
+        return false
+       }
+       var that = this ;
+       if(this.projectList.filter(function(i){
+        return i.name == that.name
+       }).length>0){
+        this.msg = '项目名称已存在'
+        return false
+       }
+       var xml = Blockly.Xml.workspaceToDom(demoWorkspace);
+       this.projectList.push({name:this.name,txt:Blockly.Xml.domToText(xml)}) ;
+       if(this.projectList.length>10){
+        this.projectList.shift()
+       }
+       console.log(this.projectList)
+       window.localStorage.setItem('projectList', JSON.stringify(this.projectList));
+       //goback();
+       this.visible = false;
+      },
+      close:function() {
+        if (this.ready) {
+          this.name='';
+          this.visible = false;
+          // goback();
+        }
+        
+      }
+    }
+  });
+
   window.safeTips = new Vue({
     el: '#safeTips',
     data: {
@@ -358,12 +534,13 @@
 
   function goback() {
     playMusic() ;
-    resetInterpreter() ;
-    sendNative({
-      "action": "back",
-      "params": "{}",
-      "callback": ""
-    });
+    resetInterpreter(false,function(){
+      sendNative({
+        "action": "back",
+        "params": "{}",
+        "callback": ""
+      });
+    }) ;
   }
 
   document.addEventListener("touchstart", function() {}, false);
@@ -385,7 +562,8 @@
     },
     trashcan: false
   });
-
+  console.log(demoWorkspace) ;
+  console.log(Blockly) ;
   var onresize = function(e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
     //console.log(11);
@@ -440,7 +618,19 @@
     interpreter.setProperty(scope, 'action',
       interpreter.createNativeFunction(wrapper));
 
+    var wrapper2 = function(text) {
+      text = text ? text.toString() : '';
+      return interpreter.createPrimitive(setGlobal(text));
+    };
+    interpreter.setProperty(scope, 'setGlobal',
+      interpreter.createNativeFunction(wrapper2));
 
+    var wrapper3 = function(text) {
+      text = text ? text.toString() : '';
+      return interpreter.createPrimitive(getGlobal(text));
+    };
+    interpreter.setProperty(scope, 'getGlobal',
+      interpreter.createNativeFunction(wrapper3));
 
     // Add an API for the wait block.  See wait_block.js
     initInterpreterWaitForSeconds(interpreter, scope);
@@ -499,15 +689,15 @@
     //resetStepUi(true);
   }
 
-  function resetInterpreter(fromApp) {
+  function resetInterpreter(fromApp,cb) {
     myInterpreter = null;
 
     if(!fromApp){
-      //停止所有
-      setTimeout(function(){
+      // //停止所有
+      // setTimeout(function(){
         //熄灭图片
-        action("A1FFFFFF");
-      },200) ;
+       //action("A1FFFFFF");
+      // },200) ;
     }
     
     $("#playBtn").addClass("play").removeClass("pause") ;
@@ -516,6 +706,8 @@
       clearTimeout(runner);
       runner = null;
     }
+
+    cb&&cb.apply() ;
   }
   
 

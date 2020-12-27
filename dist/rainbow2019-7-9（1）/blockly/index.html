@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,viewport-fit=cover">
+  <title></title>
+  <link rel="stylesheet" href="./css/block.min.css">
+</head>
+
+<body>
+  <div class="back" onclick="goback()">
+  </div>
+  <div id="blocklyArea" style="width:100%;height:100vh;"></div>
+  <div id="blocklyDiv" style="position: absolute;"></div>
+  <!-- <p>
+    <button onclick="showCode()">Show JavaScript</button>
+    
+  </p> -->
+  <i class="icon play button" id="playBtn" onclick="runPrev()"></i>
+  <i class="icon cate button" id="projectBtn" onclick="selectProject.show()"></i>
+  <i class="icon save button" id="projectSave" onclick="saveProject.show()"></i>
+  <!-- <button style="display: none" onclick="runCode()" id="runButton">Run JavaScript</button> -->
+  <!--  颜色选择框 -->
+  <div id="colorSelect" v-cloak class="modal" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h2>灯光颜色</h2>
+      <div class="content">
+        <i v-for="n in 24" @click="selectColor(list[n-1])" class="icon" :class="'scolor'+n"></i>
+      </div>
+    </div>
+  </div>
+  <!-- 选择项目 -->
+
+  <div id="projectSelect" v-cloak class="modal" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h2>选择项目</h2>
+      <div class="content projectContent">
+        <p v-for="i in projectList" :key="i.name" class="projectItem" >
+          <span>{{i.name}}</span>
+          <span>
+            <i class="icon right" @click="select(i.name)"></i>
+            <i class="icon cha" @click="showDelete(i.name)"></i>
+          </span>
+        </p>
+        <p class="none" v-if="projectList.length<=0">暂无保存项目</p>
+      </div>
+    </div>
+    <div v-show="visibleDelete" class="modalsafe">
+      <div class="dialog animated slideInDown">
+      <p class="deleteTxt">确定删除《{{willDeleteName}}》？</p>
+      <div class="footer">
+        <a href="javascript:;" @click="visibleDelete=false"></a>
+        <a href="javascript:;" @click="deleteProject"></a>
+      </div>
+      <div class="people"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 图片选择弹框 -->
+  <div id="imgSelect" v-cloak class="modaltwo" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h2>选择图片</h2>
+      <div class="content">
+        <div class="left">
+          <div v-for="n in 9" :class="select==(n-1)?'active':''" @click="selectItem(n-1)">
+            <i class="icon" :class="classIcon[n-1]"></i>
+          </div>
+        </div>
+        <div class="right" ref="right">
+          <!-- 英文单词 -->
+          <template v-if="list[select].type=='words'">
+            <div class="item words" v-for="(n ,i) in list[select].num" @click="selectImg(codeList[list[select].type][i][1])">
+              {{n}}
+            </div>
+          </template>
+          <!-- 汉字 -->
+          <template v-else-if="list[select].type=='hans'">
+            <div class="item" v-for="(n,i) in list[select].num" @click="selectImg(codeList[list[select].type][i][1])">
+              {{n}}
+            </div>
+          </template>
+          <!-- 数字 -->
+          <template v-else-if="list[select].type=='sdigit'">
+            <div class="item" v-for="n in list[select].num" @click="selectImg(codeList[list[select].type][n-1][1])">
+              {{n-1}}
+            </div>
+          </template>
+          <template v-else>
+            <i class="icon" @click="selectImg(codeList[list[select].type][n-1][1])" :class="active==n?list[select].type+n+' active':list[select].type+n" v-for="n in list[select].num"></i>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 音乐选择弹框 -->
+  <div id="musicSelect" v-cloak class="modaltwo" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h2>选择声音</h2>
+      <div class="content">
+        <div class="left">
+          <div v-for="n in 4" :class="select==(n-1)?'active':''" @click="selectItem(n-1)">
+            <i class="icon" :class="classIcon[n-1]"></i>
+          </div>
+        </div>
+        <div class="right" ref="right">
+          <i class="icon" @click="selectMusic(codeList[list[select].type][n-1][1])" :class="active==n?list[select].type+n+' active':list[select].type+n" v-for="n in list[select].num"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 连接蓝牙窗口 -->
+  <div id="openBlue" v-cloak class="bluemodal" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h2>蓝牙连接</h2>
+      <div class="content" v-if="list.length>0">
+        <div class="list" v-for="(item,index) in list" @click="link(item.status,item.peripheralID,index)">
+          <span>{{item.name}}</span>
+          <span :class="item.status == 1?'active':''"></span>
+        </div>
+      </div>
+      <div class="nodata" v-if="list.length<=0">
+        <div v-if="!scanError">
+          <img src="./img/leida.png" class="roll" alt="">
+          <div>正在搜索</div>
+        </div>
+        <div v-else>
+          没有搜索到设备，<i @click="scan">点击重试</i>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 安全提示框 -->
+  <div id="safeTips" v-cloak class="modalsafe" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <img :src="src[type]" :class="'img'+type" alt="">
+      <div class="footer">
+        <a href="javascript:;" @click="close"></a>
+        <a href="javascript:;" @click="submit"></a>
+      </div>
+      <div class="people"></div>
+    </div>
+  </div>
+  
+  <!-- 保存项目 -->
+  <div id="saveProject" v-cloak class="modalsafe" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h3 style="font-size:.35rem;color:#fff;line-height: .5rem;padding-top:.1rem">保存项目</h3>
+      <input type="text" @focus="msg = ''" @blur="goScroll" class="projectname" v-model="name">
+      <div class="projecttips">{{msg}}</div>
+      <div class="footer">
+        <a href="javascript:;" @click="close"></a>
+        <a href="javascript:;" @click="submit"></a>
+      </div>
+      <div class="people"></div>
+    </div>
+  </div>
+
+  <!-- 选择时间 -->
+  <div id="countSelect" style="display: none;">
+    <div id="countWrap">
+      <div class="circle">1</div>
+      <div class="slider-under"></div>
+      <div class="slider-over"></div>
+      <div class="point"></div>
+      <!-- <div id="slider">
+        <div id="point"></div>
+      </div> -->
+    </div>
+  </div>
+  <xml id="toolbox" style="display: none">
+    <category name="" colour="#FFA800">
+      <block type="dengg1"></block>
+      <block type="dengg2"></block>
+      <block type="dengg3"></block>
+    </category>
+    <category name="" colour="#16C141">
+      <block type="shengy1"></block>
+      <block type="shengy2"></block>
+    </category>
+    <category name="" colour="#9253E8">
+      <block type="img1"></block>
+      <block type="img2"></block>
+      <block type="img3"></block>
+    </category>
+    <category name="" colour="#3CA6EB">
+      <block type="machineA1"></block>
+      <block type="machineA2"></block>
+      <block type="machineA3"></block>
+      <block type="machineAB"></block>
+    </category>
+    <category name="" colour="#00D4E1">
+      <block type="machineB1"></block>
+      <block type="machineB2"></block>
+      <block type="machineB3"></block>
+      <block type="machineAB"></block>
+    </category>
+    <category name="" colour="#E8504D">
+      <block type="control1"></block>
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_repeat">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_if">
+        
+      </block>
+      <block type="controls_ifelse">
+        
+      </block>
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+      <block type="logic_compare"></block> 
+    </category>
+    <category name="" colour="#FF7043">
+      <block type="logic_boolean"></block>
+      <block type="logic_boolean1"></block>
+      <block type="logic_boolean2"></block>
+      <block type="logic_boolean3"></block>
+      <block type="logic_boolean4"></block>
+    </category>
+  </xml>
+  <xml id="startBlocks" style="display: none">
+    <block type="action0" inline="true" x="50" y="40"></block>
+  </xml>
+
+  <script src="./lib/block.min.js"></script>
+  <script src="./lib/storage.js"></script>
+  <script src="./msg/js/zh-hans.js"></script>
+  <script src="./lib/vue.min.js"></script>
+  <script src="./lib/hammer.min.js"></script>
+  <script src="./lib/app.js"></script>
+  <script>
+      $(function(){
+        $(document).on("blur","input",function(){
+          window.scrollTo(0,0)
+        }) 
+      })
+  </script>
+</body>
+</html>

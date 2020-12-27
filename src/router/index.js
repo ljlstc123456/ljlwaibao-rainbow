@@ -13,6 +13,7 @@ import create  from '@/pages/create'
 import demo  from '@/pages/demo'
 import demoDetail from '@/pages/demoDetail'
 import demoStep from '@/pages/demoStep'
+import demoStep1 from '@/pages/demoStep1'
 import test from '@/pages/test'
 export default new Router({
   //mode:"history",
@@ -69,19 +70,25 @@ export default new Router({
       path: '/home/demo',
       name: 'demo',
       component: demo,
-      meta: { title: '示例模式'}
+      meta: { title: ''}
     },
     {
       path: '/home/demo/demoDetail',
       name: 'demoDetail',
       component: demoDetail,
-      meta: { title: '示例模式'}
+      meta: { title: '协作与竞赛'}
     },
     {
       path: '/home/demo/demoStep',
       name: 'demoStep',
       component: demoStep,
-      meta: { title: '示例模式'}
+      meta: { title: '协作与竞赛'}
+    },
+    {
+      path: '/home/demo/demoStep1',
+      name: 'demoStep1',
+      component: demoStep1,
+      meta: { title: '协作与竞赛'}
     }
   ],
   scrollBehavior(to, from, savedPosition) {

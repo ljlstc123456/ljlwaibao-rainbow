@@ -31,7 +31,7 @@ export default {
 			'waitForSeconds(.2);'+
 			'send("B1214FFF");'+
 			'waitForSeconds(.2);'+
-			'send("B1105005F");'+
+			'send("B1105005");'+
 			'waitForSeconds(1);'+
 			'send("F101C8FF");'+
 			'waitForSeconds(3);'+
@@ -55,7 +55,7 @@ export default {
 		   'waitForSeconds(.2);'+
 		   'send("B1214FFF");'+
 		   'waitForSeconds(.2);'+
-		   'send("B1103001F");'+
+		   'send("B1103001");'+
 		   'waitForSeconds(.2);'+
 		   'send("C101000F");'+
 		   'waitForSeconds(1);'+

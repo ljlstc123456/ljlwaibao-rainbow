@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <div class="back" onclick="goback()">
+  <div class="back" onclick="window.exitDialog.show()">
   </div>
   <div id="blocklyArea" style="width:100%;height:100vh;"></div>
   <div id="blocklyDiv" style="position: absolute;"></div>
@@ -18,6 +18,8 @@
     
   </p> -->
   <i class="icon play button" id="playBtn" onclick="runPrev()"></i>
+  <i class="icon cate button" id="projectBtn" onclick="selectProject.show()"></i>
+  <i class="icon save button" id="projectSave" onclick="saveProject.show()"></i>
   <!-- <button style="display: none" onclick="runCode()" id="runButton">Run JavaScript</button> -->
   <!--  颜色选择框 -->
   <div id="colorSelect" v-cloak class="modal" v-if="visible" @click.self="close">
@@ -28,6 +30,45 @@
       </div>
     </div>
   </div>
+  <!-- 选择项目 -->
+  <div id="projectSelect" v-cloak class="modal" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h2><img src="./img/projectTitle.png" alt="">列表名称</h2>
+      <div class="content projectContent">
+        <p v-for="i in projectList" :key="i.name" class="projectItem" >
+          <span>{{i.name}}</span>
+          <span>
+            <i class="icon right" @click="select(i.name)"></i>
+            <i class="icon cha" @click="showDelete(i.name)"></i>
+          </span>
+        </p>
+        <p class="none" v-if="projectList.length<=0">暂无保存项目</p>
+      </div>
+    </div>
+    <div v-show="visibleDelete" class="modalsafe">
+      <div class="dialog animated slideInDown">
+      <p class="deleteTxt">确定删除《{{willDeleteName}}》？</p>
+      <div class="footer">
+        <a href="javascript:;" @click="visibleDelete=false"></a>
+        <a href="javascript:;" @click="deleteProject"></a>
+      </div>
+      <div class="people people1"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 是否退出 -->
+  <div id="isExit" v-if="visible" v-cloak class="modalsafe">
+      <div class="dialog animated slideInDown">
+      <p class="deleteTxt"><img src="./img/exit.png" alt="">是否退出?</p>
+      <div class="footer">
+        <a href="javascript:;" @click="visible=false"></a>
+        <a href="javascript:;" @click="ok"></a>
+      </div>
+      <div class="people people1"></div>
+      </div>
+    </div>
+
   <!-- 图片选择弹框 -->
   <div id="imgSelect" v-cloak class="modaltwo" v-if="visible" @click.self="close">
     <div class="dialog animated slideInDown">
@@ -70,7 +111,7 @@
       <h2>选择声音</h2>
       <div class="content">
         <div class="left">
-          <div v-for="n in 4" :class="select==(n-1)?'active':''" @click="selectItem(n-1)">
+          <div v-for="n in 5" :class="select==(n-1)?'active':''" @click="selectItem(n-1)">
             <i class="icon" :class="classIcon[n-1]"></i>
           </div>
         </div>
@@ -113,6 +154,22 @@
       <div class="people"></div>
     </div>
   </div>
+  
+  <!-- 保存项目 -->
+  <div id="saveProject" v-cloak class="modalsafe" v-if="visible" @click.self="close">
+    <div class="dialog animated slideInDown">
+      <h3><img src="./img/saveTitle.png" alt="">保存项目</h3>
+      <div class="input">
+        <span>名称:</span><input type="text" @focus="msg = ''" @blur="goScroll" class="projectname" v-model="name">
+      </div>
+      <div class="projecttips">{{msg}}</div>
+      <div class="footer">
+        <a href="javascript:;" @click="close"></a>
+        <a href="javascript:;" @click="submit"></a>
+      </div>
+      <div class="people"></div>
+    </div>
+  </div>
 
   <!-- 选择时间 -->
   <div id="countSelect" style="display: none;">
@@ -127,31 +184,31 @@
     </div>
   </div>
   <xml id="toolbox" style="display: none">
-    <category name="" colour="#FFA800">
-      <block type="dengg1"></block>
+    <category name="" colour="#ff561f">
+      <!-- <block type="dengg1"></block> -->
       <block type="dengg2"></block>
       <block type="dengg3"></block>
     </category>
     <category name="" colour="#16C141">
       <block type="shengy1"></block>
       <block type="shengy2"></block>
+      <block type="shengy3"></block>
     </category>
     <category name="" colour="#9253E8">
-      <block type="img1"></block>
       <block type="img2"></block>
       <block type="img3"></block>
     </category>
     <category name="" colour="#3CA6EB">
-      <block type="machineA1"></block>
+     <!--  <block type="machineA1"></block> -->
       <block type="machineA2"></block>
       <block type="machineA3"></block>
       <block type="machineAB"></block>
     </category>
     <category name="" colour="#00D4E1">
-      <block type="machineB1"></block>
+      <!-- <block type="machineB1"></block> -->
       <block type="machineB2"></block>
       <block type="machineB3"></block>
-      <block type="machineAB"></block>
+      <block type="machineAB1"></block>
     </category>
     <category name="" colour="#E8504D">
       <block type="control1"></block>
@@ -162,6 +219,40 @@
           </block>
         </value>
       </block>
+      <block type="controls_repeat">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_if">
+        
+      </block>
+      <block type="controls_ifelse">
+        
+      </block>
+      <block type="logic_compare1">
+          <value name="A">
+           <block type="logic_boolean3_other"></block>
+          </value>
+      </block>
+    </category>
+    <category name="" colour="#FF7043">
+      <!-- <block type="logic_boolean"></block> -->
+      <block type="logic_boolean1"></block>
+      <!-- <block type="logic_boolean2"></block> -->
+      <block type="logic_boolean3"></block>
+      <block type="logic_boolean4"></block>
+    </category>
+    <category name="" colour="#FF7043">
+      <block type="dengg1"></block>
+      <block type="shengy4"></block>
+      <block type="shengy5"></block>
+      <block type="img1"></block>
+      <block type="machineA1"></block>
+      <block type="machineB1"></block>
+      <block type="machineC"></block>
     </category>
   </xml>
   <xml id="startBlocks" style="display: none">
@@ -169,12 +260,17 @@
   </xml>
 
   <script src="./lib/block.min.js"></script>
+  <script src="./lib/storage.js"></script>
   <script src="./msg/js/zh-hans.js"></script>
   <script src="./lib/vue.min.js"></script>
   <script src="./lib/hammer.min.js"></script>
   <script src="./lib/app.js"></script>
   <script>
-      
+      $(function(){
+        $(document).on("blur","input",function(){
+          window.scrollTo(0,0)
+        }) 
+      })
   </script>
 </body>
 </html>

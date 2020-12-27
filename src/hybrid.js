@@ -3,7 +3,7 @@
  * @param {*} opts 
  */
 function mockHybrid(opts) {
-  //console.info('hybrid 调用: ', opts);
+  console.info('hybrid 调用: ', opts);
   if(opts.action=="bluetooth"){
     opts.callback && opts.callback([{"name":"xxx1","peripheralID":1,"status":"0"},{"peripheralID":2,"name":"xxx2","status":"0"},{"peripheralID":3,"name":"xxx3","status":"0"}])
   }else if(opts.action=="link"){

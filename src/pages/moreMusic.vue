@@ -16,12 +16,16 @@
       <div class="items" v-if="active==4">
         <img v-for="(item,n) in active4Arr" @click="sendCode(active4Code[n])" :class="nowActive==(4+'-'+n)?'active':''" :src="item" alt="">
       </div>
+      <div class="items" v-if="active==6">
+        <img v-for="(item,n) in active6Arr" @click="sendCode(active6Code[n])" :class="nowActive==(6+'-'+n)?'active':''" :src="item" alt="">
+      </div>
     </div>
     <div class="footer">
       <div @click="active = 1"><i class="icon musicm1" :class="active==1?'active':''"></i></div>
       <div @click="active = 2"><i class="icon musicm2" :class="active==2?'active':''"></i></div>
       <div @click="active = 3"><i class="icon musicm3" :class="active==3?'active':''"></i></div>
       <div @click="active = 4"><i class="icon musicm4" :class="active==4?'active':''"></i></div>
+      <div @click="active = 6"><i class="icon musicm6" :class="active==6?'active':''"></i></div>
     </div>
   </div>
 </template>
@@ -43,7 +47,9 @@ export default {
       active3Arr:[],
       active3Code:codes["dh"],
       active4Arr:[],
-      active4Code:codes["yx"],
+      active4Code:codes["jtt"],
+      active6Arr:[],
+      active6Code:codes["sh"],
     }
   },
   watch: {
@@ -57,17 +63,20 @@ export default {
 
   },
   created() {
-    for (let i = 1; i <= 16; ++i) {
+    for (let i = 1; i <= 23; ++i) {
       this.active1Arr.push(require(`../../static/imgs/control/dongw${i}.png`))
     }
     for (let i = 1; i <= 21; ++i) {
       this.active2Arr.push(require(`../../static/imgs/control/yin${i}.png`))
     }
-    for (let i = 1; i <= 19; ++i) {
+    for (let i = 1; i <= 21; ++i) {
       this.active3Arr.push(require(`../../static/imgs/control/dongh${i}.png`))
     }
-    for (let i = 1; i <= 7; ++i) {
-      this.active4Arr.push(require(`../../static/imgs/control/yx${i}.png`))
+    for (let i = 1; i <= 10; ++i) {
+      this.active4Arr.push(require(`../../static/imgs/control/jtt${i}.png`))
+    }
+    for (let i = 1; i <= 5; ++i) {
+      this.active6Arr.push(require(`../../static/imgs/control/sh${i}.png`))
     }
     //this.changeActive(this.$route.name) ;
   },

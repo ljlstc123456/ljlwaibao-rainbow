@@ -49,6 +49,44 @@ window.action = function(code){
       "callback":"openBlue"
   }) ;
 }
+
+var globalObj = {} ;
+window.setGlobal = function(text) {
+  var param = text.split("-") ;
+  globalObj[param[0]] = param[2]=="false"?false:param[2] ;
+  sendNative({
+      "action":"sendBack",
+      "params":JSON.stringify({
+        "code":param[1]
+      }),
+      "callback":function(data){
+        console.log("机器返回数据",data) ;
+        if(param[0] == 'logic') {
+          globalObj[param[0]] = data.toLocaleUpperCase() == "ZH020FFFFW"?false:true ;
+        } else if(param[0] == 'logic1') {
+          var value = data.toLocaleUpperCase().replace("ZH01","").replace("FFW","") ;
+          var val = parseInt(value.charAt(0) * 256) + parseInt(value.charAt(1) * 16) + parseInt(value.charAt(2)) ;
+          globalObj[param[0]] = val<100?true:false ;
+        } else if(param[0] == 'logic2') {
+          var value = data.toLocaleUpperCase().replace("ZH03","").replace("FFFW","") ;
+          var val = parseInt(value.charAt(0) * 16) + parseInt(value.charAt(1)) ;
+          globalObj[param[0]] = val ;
+        } else if(param[0] == 'logic3') {
+          var value = data.toLocaleUpperCase().replace("ZH04","").replace("FFW","") ;
+          var val = parseInt(value.charAt(0) * 256) + parseInt(value.charAt(1) * 16) + parseInt(value.charAt(2)) ;
+          globalObj[param[0]] = parseInt(val/100) ;
+        } else if(param[0] == 'logic4') {
+          var value = data.toLocaleUpperCase().replace("ZH04","").replace("FFW","") ;
+          var val = parseInt(value.charAt(0) * 256) + parseInt(value.charAt(1) * 16) + parseInt(value.charAt(2)) ;
+          globalObj[param[0]] = val>500?true:false ;
+        }
+        
+      }
+  }) ;
+}
+window.getGlobal = function(text) {
+  return globalObj[text] ;
+}
 // var audio = document.getElementById("audio") ;
 window.playMusic = function(){
   sendNative({
@@ -111,10 +149,10 @@ function sendNative(opts) {
   //   console.log('mock data');
   //   return mockHybrid(opts);
   // }
-  //console.log(opts) ;
+  
   var callback = opts.callback,
   callbackname = 'hybrid_callback_' + new Date().getTime();
-
+  
   if(opts.action=="send"){
     opts.callback = "openBlue" ;
     opts.params = paddingZW(opts.params) ;
@@ -132,8 +170,10 @@ function sendNative(opts) {
       window[callbackname] = undefined;
     }
     opts.callback = callbackname;
-  }
+    
 
+  }
+  console.log("发送给手机",opts) ;
   if(a == "ios"){
     window.webkit.messageHandlers.nativeBridge.postMessage(JSON.stringify(opts));
   }else if(a == "android"){

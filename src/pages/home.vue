@@ -73,9 +73,9 @@ export default {
     },
     goBlocky(){
       playMusic() ;
-      // setTimeout(()=>{
+      setTimeout(()=>{
         window.location.href = "./blockly/index.html" ;
-      // },200) ;
+      },200) ;
     },
     changeBlue(){
       playMusic() ;
@@ -155,7 +155,7 @@ img{
       background-image: url('../../static/imgs/home/menu1.png')
     }
     &.item2 {
-      background-image: url('../../static/imgs/home/menu2.png')
+      background-image: url('../../static/imgs/home/menu4.png')
     }
     &.item3 {
       background-image: url('../../static/imgs/home/menu3.png')

@@ -65,7 +65,7 @@ function resetInterpreter() {
   }
 }
 
-function runCode(latestCode) {
+function runCode(latestCode,cb) {
   if (!myInterpreter) {
     //var latestCode = generateCodeAndLoadIntoInterpreter(latestCode) ;
     setTimeout(function() {
@@ -85,6 +85,7 @@ function runCode(latestCode) {
           } else {
             // Program is complete.
             //outputArea.value += '\n\n<< Program complete >>';
+            cb&&cb.apply() ;
             resetInterpreter();
           }
         }

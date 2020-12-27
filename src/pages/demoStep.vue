@@ -1,7 +1,7 @@
 <template>
   <div class="bg bgperfect">
     <back></back>
-    <div class="ptFont title">拼搭步骤</div>
+    <div class="ptFont title">&nbsp;</div>
     	<div class="step-imgs" :style="{backgroundImage:'url('+bgUrl[now-1]+')'}"></div>
     <div class="footer ptFont">
     	<div class="page-info">{{now}}/{{max}}</div>
@@ -30,7 +30,7 @@ export default {
   },
   created(){
     this.index = this.$route.query.id ;
-    let maxArr = [0,29,8,8];
+    let maxArr = [0,3,1,2];
     this.max = maxArr[this.index] ;
     for(let i=1;i<=this.max;i++){
     	this.bgUrl.push(require(`../../static/imgs/demo/step${this.index}/step${i}.jpg`));
