@@ -83,7 +83,7 @@ body,#blocklyArea,#blocklyDiv{
 }
 html{font-size:41.66666667px}
 .blocklyTreeRoot{
-	padding-top: 3rem;
+	padding-top: 1.4rem;
 	height: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
