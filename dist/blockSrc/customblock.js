@@ -421,7 +421,7 @@ Blockly.defineBlocksWithJsonArray([{
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#ff561f"
+    "colour": "#FFA800"
   },
   {
     "type": "dengg2",
@@ -440,7 +440,7 @@ Blockly.defineBlocksWithJsonArray([{
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#ff561f"
+    "colour": "#FFA800"
   },
   {
     "type": "dengg3",
@@ -453,7 +453,7 @@ Blockly.defineBlocksWithJsonArray([{
     }],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#ff561f"
+    "colour": "#FFA800"
   }
 ]);
 //声音
@@ -1003,17 +1003,12 @@ Blockly.defineBlocksWithJsonArray([{
 //运动
 Blockly.defineBlocksWithJsonArray([{
   "type": "action0",
-  "message0": "%1%2",
-  "args0": [{
-    "type": "field_image",
-    "src": "./img/start.png",
-    "width": 30,
-    "height": 30
-  },
+  "message0": "%1当开始被点击",
+  "args0": [
   {
     "type": "field_image",
     "src": "./img/block.png",
-    "width": 60,
+    "width": 1,
     "height": 30
   }],
   "nextStatement": null,
