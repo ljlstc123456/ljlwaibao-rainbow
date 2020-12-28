@@ -116,7 +116,7 @@ export default {
     for (let i = 1; i <= 14; ++i) {
       this.active2Arr.push(require(`../../static/imgs/control/jt${i}.png`))
     }
-    for (let i = 1; i <= 12; ++i) {
+    for (let i = 1; i <= 20; ++i) {
       this.active3Arr.push(require(`../../static/imgs/control/biao${i}.png`))
     }
     for (let i = 1; i <= 12; ++i) {
