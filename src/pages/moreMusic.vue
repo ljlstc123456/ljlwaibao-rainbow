@@ -13,6 +13,9 @@
       <div class="items" v-if="active==3">
         <img v-for="(item,n) in active3Arr" @click="sendCode(active3Code[n])" :class="nowActive==(3+'-'+n)?'active':''" :src="item" alt="">
       </div>
+      <div class="items" v-if="active==5">
+        <img v-for="(item,n) in active5Arr" @click="sendCode(active5Code[n])" :class="nowActive==(5+'-'+n)?'active':''" :src="item" alt="">
+      </div>
       <div class="items" v-if="active==4">
         <img v-for="(item,n) in active4Arr" @click="sendCode(active4Code[n])" :class="nowActive==(4+'-'+n)?'active':''" :src="item" alt="">
       </div>
@@ -24,6 +27,7 @@
       <div @click="active = 1"><i class="icon musicm1" :class="active==1?'active':''"></i></div>
       <div @click="active = 2"><i class="icon musicm2" :class="active==2?'active':''"></i></div>
       <div @click="active = 3"><i class="icon musicm3" :class="active==3?'active':''"></i></div>
+      <div @click="active = 5"><i class="icon musicm5" :class="active==5?'active':''"></i></div>
       <div @click="active = 4"><i class="icon musicm4" :class="active==4?'active':''"></i></div>
       <div @click="active = 6"><i class="icon musicm6" :class="active==6?'active':''"></i></div>
     </div>
@@ -48,6 +52,8 @@ export default {
       active3Code:codes["dh"],
       active4Arr:[],
       active4Code:codes["jtt"],
+      active5Arr:[],
+      active5Code:codes["yx"],
       active6Arr:[],
       active6Code:codes["sh"],
     }
@@ -69,13 +75,16 @@ export default {
     for (let i = 1; i <= 21; ++i) {
       this.active2Arr.push(require(`../../static/imgs/control/yin${i}.png`))
     }
-    for (let i = 1; i <= 21; ++i) {
+    for (let i = 1; i <= 29; ++i) {
       this.active3Arr.push(require(`../../static/imgs/control/dongh${i}.png`))
     }
-    for (let i = 1; i <= 10; ++i) {
+    for (let i = 1; i <= 11; ++i) {
       this.active4Arr.push(require(`../../static/imgs/control/jtt${i}.png`))
     }
-    for (let i = 1; i <= 5; ++i) {
+    for (let i = 1; i <= 7; ++i) {
+      this.active5Arr.push(require(`../../static/imgs/control/yx${i}.png`))
+    }
+    for (let i = 1; i <= 6; ++i) {
       this.active6Arr.push(require(`../../static/imgs/control/sh${i}.png`))
     }
     //this.changeActive(this.$route.name) ;

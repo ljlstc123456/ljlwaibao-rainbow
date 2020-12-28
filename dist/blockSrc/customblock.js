@@ -143,7 +143,14 @@ var imgCode = {
     ["老头",     "C106008F"],
     ["微笑",     "C106009F"],
     ["奔跑",     "C10600AF"],
-    ["大白",     "C10600BF"]
+    ["大白",     "C10600BF"],
+    ["表情1",    "C103000F"],
+    ["表情2",    "C103001F"],
+    ["表情3",    "C103002F"],
+    ["表情4",    "C103003F"],
+    ["表情5",    "C103004F"],
+    ["表情6",    "C103005F"],
+    ["表情7",    "C103006F"]
   ],
   sfz: [
     ["体恤",   "C10400AF"],
@@ -393,7 +400,7 @@ Blockly.defineBlocksWithJsonArray([{
       {
         "type": "field_colour",
         "name": "C",
-        "colour": "#1EBCAF"
+        "colour": "#ffffff"
       },
       {
         "type": "field_image",
@@ -435,7 +442,7 @@ Blockly.defineBlocksWithJsonArray([{
       {
         "type": "field_colour",
         "name": "C",
-        "colour": "#1EBCAF"
+        "colour": "#ffffff"
       }
     ],
     "previousStatement": null,
@@ -456,10 +463,11 @@ Blockly.defineBlocksWithJsonArray([{
     "colour": "#FFA800"
   }
 ]);
+
 //声音
 Blockly.defineBlocksWithJsonArray([{
     "type": "shengy1",
-    "message0": "%1 声音 %2",
+    "message0": "%1 声音 %2音量 %3",
     "args0": [{
         "type": "field_image",
         "src": "./img/music.png",
@@ -471,20 +479,6 @@ Blockly.defineBlocksWithJsonArray([{
         "name": "M",
         "otherOptions": "selectMusic",
         "options":concatJSON(soundCode)
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#3ca6eb"
-  },
-  {
-    "type": "shengy2",
-    "message0": "%1 音量 %2",
-    "args0": [{
-        "type": "field_image",
-        "src": "./img/music2.png",
-        "width": 30,
-        "height": 30
       },
       {
         "type": "field_dropdown",
@@ -499,122 +493,27 @@ Blockly.defineBlocksWithJsonArray([{
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#3ca6eb"
+    "colour": "#9253E8"
   },
   {
-    "type": "shengy3",
+    "type": "shengy2",
     "message0": "%1 停止",
     "args0": [{
       "type": "field_image",
-      "src": "./img/music3.png",
+      "src": "./img/music.png",
       "width": 30,
       "height": 30
     }],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#3ca6eb"
-  },
-  {
-    "type": "shengy4",
-    "message0": "%1 声音 %2 %3音量%4",
-    "args0": [{
-        "type": "field_image",
-        "src": "./img/music.png",
-        "width": 30,
-        "height": 30
-      },
-      {
-        "type": "field_dropdown",
-        "name": "M",
-        "otherOptions": "selectMusic",
-        "options":concatJSON(soundCode)
-      },
-      {
-        "type": "field_image",
-        "src": "./img/music2.png",
-        "width": 31,
-        "height": 30
-      },
-      {
-        "type": "field_dropdown",
-        "name": "S",
-        "otherOptions":"selectCount",
-        "options": [
-          ["小", "1"],
-          ["中", "2"],
-          ["大", "3"]
-        ]
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#3ca6eb"
-  },
-  {
-    "type": "shengy5",
-    "message0": "%1 声音 %2 %3音量%4 %5时间%6",
-    "args0": [{
-        "type": "field_image",
-        "src": "./img/music.png",
-        "width": 30,
-        "height": 30
-      },
-      {
-        "type": "field_dropdown",
-        "name": "M",
-        "otherOptions": "selectMusic",
-        "options":concatJSON(soundCode)
-      },
-      {
-        "type": "field_image",
-        "src": "./img/music2.png",
-        "width": 31,
-        "height": 30
-      },
-      {
-        "type": "field_dropdown",
-        "name": "S",
-        "otherOptions":"selectCount",
-        "options": [
-          ["小", "1"],
-          ["中", "2"],
-          ["大", "3"]
-        ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/time.png",
-        "width": 31,
-        "height": 30
-      },
-      {
-        "type": "field_dropdown",
-        "name": "T",
-        "otherOptions":"selectCount",
-        "options": [
-          ["1", "1"],
-          ["2", "2"],
-          ["3", "3"],
-          ["4", "4"],
-          ["5", "5"],
-          ["6", "6"],
-          ["7", "7"],
-          ["8", "8"],
-          ["9", "9"],
-          ["10","10"]
-        ]
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#3ca6eb"
+    "colour": "#9253E8"
   }
 ]);
 
 //图片
 Blockly.defineBlocksWithJsonArray([{
     "type": "img1",
-    "message0": "%1 图片 %2 %4时间 %3秒",
+    "message0": "%1 图片 %2 时间 %3秒",
     "args0": [{
         "type": "field_image",
         "src": "./img/img.png",
@@ -643,17 +542,11 @@ Blockly.defineBlocksWithJsonArray([{
           ["9", "9"],
           ["10","10"]
         ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/time.png",
-        "width": 31,
-        "height": 30
       }
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#00d4e1"
+    "colour": "#16C141"
   },
   {
     "type": "img2",
@@ -673,28 +566,27 @@ Blockly.defineBlocksWithJsonArray([{
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#00d4e1"
+    "colour": "#16C141"
   },
   {
     "type": "img3",
-    "message0": "%1 关闭",
+    "message0": "%1 熄灭",
     "args0": [{
       "type": "field_image",
-      "src": "./img/img1.png",
+      "src": "./img/img.png",
       "width": 30,
       "height": 30
     }],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#00d4e1"
+    "colour": "#16C141"
   }
 ]);
-
 
 //电机A
 Blockly.defineBlocksWithJsonArray([{
     "type": "machineA1",
-    "message0": "%1 方向 %2 %5速度 %3 %6时间 %4秒",
+    "message0": "%1 方向 %2 速度 %3 时间 %4秒",
     "args0": [{
         "type": "field_image",
         "src": "./img/a.png",
@@ -735,27 +627,15 @@ Blockly.defineBlocksWithJsonArray([{
           ["9", "9"],
           ["10","10"]
         ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/speed.png",
-        "width": 31,
-        "height": 30
-      },
-      {
-        "type": "field_image",
-        "src": "./img/time.png",
-        "width": 31,
-        "height": 30
       }
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#15c140"
+    "colour": "#3CA6EB"
   },
   {
     "type": "machineA2",
-    "message0": "%1 方向 %2 %4速度 %3",
+    "message0": "%1 方向 %2 速度 %3",
     "args0": [{
         "type": "field_image",
         "src": "./img/a.png",
@@ -779,36 +659,30 @@ Blockly.defineBlocksWithJsonArray([{
           ["中", "2"],
           ["高", "3"],
         ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/speed.png",
-        "width": 31,
-        "height": 30
       }
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#15c140"
+    "colour": "#3CA6EB"
   },
   {
     "type": "machineA3",
-    "message0": "%1 停止转动",
+    "message0": "%1 停止",
     "args0": [{
       "type": "field_image",
-      "src": "./img/a1.png",
+      "src": "./img/a.png",
       "width": 30,
       "height": 30
     }],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#15c140"
+    "colour": "#3CA6EB"
   }
 ]);
 //电机B
 Blockly.defineBlocksWithJsonArray([{
     "type": "machineB1",
-    "message0": "%1 方向 %2 %5速度 %3 %6时间 %4秒",
+    "message0": "%1 方向 %2 速度 %3 时间 %4秒",
     "args0": [{
         "type": "field_image",
         "src": "./img/b.png",
@@ -849,27 +723,15 @@ Blockly.defineBlocksWithJsonArray([{
           ["9", "9"],
           ["10","10"]
         ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/speed.png",
-        "width": 31,
-        "height": 30
-      },
-      {
-        "type": "field_image",
-        "src": "./img/time.png",
-        "width": 31,
-        "height": 30
       }
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#e7031f"
+    "colour": "#00D4E1"
   },
   {
     "type": "machineB2",
-    "message0": "%1 方向 %2 %4速度 %3",
+    "message0": "%1 方向 %2 速度 %3",
     "args0": [{
         "type": "field_image",
         "src": "./img/b.png",
@@ -893,113 +755,46 @@ Blockly.defineBlocksWithJsonArray([{
           ["中", "2"],
           ["高", "3"],
         ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/speed.png",
-        "width": 31,
-        "height": 30
       }
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#e7031f"
+    "colour": "#00D4E1"
   },
   {
     "type": "machineB3",
-    "message0": "%1 停止转动",
+    "message0": "%1 停止",
     "args0": [{
       "type": "field_image",
-      "src": "./img/b1.png",
+      "src": "./img/b.png",
       "width": 30,
       "height": 30
     }],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#e7031f"
+    "colour": "#00D4E1"
   },
   {
     "type": "machineAB",
-    "message0": "%1 %2停止转动",
+    "message0": "%1 %2停止",
     "args0": [{
         "type": "field_image",
-        "src": "./img/a1.png",
+        "src": "./img/a.png",
         "width": 30,
         "height": 30
       },
       {
         "type": "field_image",
-        "src": "./img/b1.png",
+        "src": "./img/b.png",
         "width": 30,
         "height": 30
       }
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#15c140"
-  },
-  {
-    "type": "machineAB1",
-    "message0": "%1 %2停止转动",
-    "args0": [{
-        "type": "field_image",
-        "src": "./img/a1.png",
-        "width": 30,
-        "height": 30
-      },
-      {
-        "type": "field_image",
-        "src": "./img/b1.png",
-        "width": 30,
-        "height": 30
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#e7031f"
-  },
-  {
-    "type": "machineC",
-    "message0": "%1 方向 %2 %4速度 %3",
-    "args0": [{
-        "type": "field_image",
-        "src": "./img/d.png",
-        "width": 30,
-        "height": 30
-      },
-      {
-        "type": "field_dropdown",
-        "name": "D",
-        "options": [
-          ["↑", "1"],
-          ["→", "4"],
-          ["↓", "2"],
-          ["←", "3"],
-        ]
-      },
-      {
-        "type": "field_dropdown",
-        "name": "S",
-        "otherOptions":"selectCount",
-        "options": [
-          ["低", "1"],
-          ["中", "2"],
-          ["高", "3"],
-        ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/speed.png",
-        "width": 31,
-        "height": 30
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#88922c"
+    "colour": "#16C141"
   }
 ]);
-
 //运动
 Blockly.defineBlocksWithJsonArray([{
   "type": "action0",
@@ -1017,14 +812,13 @@ Blockly.defineBlocksWithJsonArray([{
 }]);
 
 
-//控制
 Blockly.defineBlocksWithJsonArray([{
     "type": "control1",
     "message0": "%1等待 %2 秒",
     "args0": [{
         "type": "field_image",
-        "src": "./img/control1.png",
-        "width": 30,
+        "src": "./img/block.png",
+        "width": 1,
         "height": 30
       },
       {
@@ -1047,24 +841,7 @@ Blockly.defineBlocksWithJsonArray([{
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#ffa800"
-  },
-  {
-    "type": "math_number",
-    "message0": "%2%1",
-    "args0": [{
-      "type": "field_number",
-      "name": "NUM",
-      "value": 0
-    },{
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "output": "Number",
-    "colour": "#ffa800"
+    "colour": "#E8504D"
   },
   {
     "type": "controls_repeat_ext",
@@ -1088,79 +865,6 @@ Blockly.defineBlocksWithJsonArray([{
       },
       {
         "type": "field_image",
-        "src": "./img/control2.png",
-        "width": 30,
-        "height": 30
-      }
-    ],
-    "message1": "%2 %1",
-    "args1": [{
-        "type": "input_statement",
-        "name": "DO"
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#ffa800"
-  },
-  {
-    "type": "controls_repeat",
-    "message0": "%2重复执行%1",
-    "args0": [{
-        "type": "field_image",
-        "src": "./img/block.png",
-        "name": "TIMES",
-        "value": 1,
-        "width": 1,
-        "height": 30
-    }
-    ,
-     {
-        "type": "field_image",
-        "src": "./img/control2.png",
-        "width": 30,
-        "height": 30
-      }
-    ],
-    "message1": "%2 %1",
-    "args1": [{
-        "type": "input_statement",
-        "name": "DO"
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#ffa800"
-  },
-  {
-    "type": "controls_if",
-    "message0": "%1 如果 %2 %3那么",
-    "args0": [
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      },
-      {
-        "type": "input_value",
-        "name": "IF0",
-        "check": "Boolean"
-      },
-      {
-        "type": "field_image",
         "src": "./img/block.png",
         "width": 1,
         "height": 30
@@ -1180,231 +884,7 @@ Blockly.defineBlocksWithJsonArray([{
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "#ffa800"
-  },
-  // If/else block that does not use a mutator.
-  {
-    "type": "logic_boolean",
-    "message0": "%1检测到人体",
-    "args0":[
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "output": "Boolean",
-    "colour": "#FF7043"
-  },
-  {
-    "type": "logic_boolean1",
-    "message0": "%1 红外避障传感器碰到障碍",
-    "args0":[
-      {
-        "type": "field_image",
-        "src": "./img/logic1.png",
-        "width": 30,
-        "height": 30
-      }
-    ],
-    "output": "Boolean",
-    "colour": "#9253e8"
-  },
-  {
-    "type": "logic_boolean2",
-    "message0": "%1 温度传感器的温度",
-    "args0":[
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "output": 'Number',
-    "colour": "#FF7043"
-  },
-  {
-    "type": "logic_boolean3",
-    "message0": "%1 声音传感器的值",
-    "args0":[
-      {
-        "type": "field_image",
-        "src": "./img/music.png",
-        "width": 30,
-        "height": 30
-      }
-    ],
-    "output": 'Number',
-    "colour": "#9253e8"
-  },
-  {
-    "type": "logic_boolean3_other",
-    "message0": "%1 声音传感器的值",
-    "args0":[
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "output": 'Number',
-    "colour": "#ffa800"
-  },
-  {
-    "type": "logic_boolean4",
-    "message0": "%1 检测到声音",
-    "args0":[
-      {
-        "type": "field_image",
-        "src": "./img/logic2.png",
-        "width": 30,
-        "height": 30
-      }
-    ],
-    "output": 'Boolean',
-    "colour": "#9253e8"
-  },
-  {
-    "type": "controls_ifelse",
-    "message0": "%2 如果 %1",
-    "args0": [
-      {
-        "type": "input_value",
-        "name": "IF0",
-        "check": "Boolean"
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "message1": "%2 执行 %1",
-    "args1": [
-      {
-        "type": "input_statement",
-        "name": "DO"
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "message2": "%2 否则 %1",
-    "args2": [
-      {
-        "type": "input_statement",
-        "name": "ELSE"
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#ffa800"
-  },
-  {
-    "type": "logic_compare",
-    "message0": "%1 %5 %2 %3 %4",
-    "args0": [
-      {
-        "type": "input_value",
-        "name": "A"
-      },
-      {
-        "type": "field_dropdown",
-        "name": "OP",
-        "options": [
-          ["=", "EQ"],
-          ["\u2260", "NEQ"],
-          ["<", "LT"],
-          ["\u2264", "LTE"],
-          [">", "GT"],
-          ["\u2265", "GTE"]
-        ]
-      },
-      {
-        "type": "input_value",
-        "name": "B"
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "inputsInline": true,
-    "output": "Boolean",
     "colour": "#E8504D"
-  },
-  {
-    "type": "logic_compare1",
-    "message0": "%5声音传感器的值 %4 %1 %2 %3",
-    "args0": [
-      {
-        "type": "field_dropdown",
-        "name": "OP",
-        "options": [
-          [">", "GT"],
-          ["<", "LT"]
-        ]
-      },
-      {
-        "type": "field_dropdown",
-        "name": "T",
-        "otherOptions":"selectCount",
-        "options": [
-          ["1", "1"],
-          ["2", "2"],
-          ["3", "3"],
-          ["4", "4"],
-          ["5", "5"],
-          ["6", "6"],
-          ["7", "7"],
-          ["8", "8"],
-          ["9", "9"],
-          ["10","10"]
-        ]
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      },
-      {
-        "type": "field_image",
-        "src": "./img/block.png",
-        "width": 1,
-        "height": 30
-      }
-    ],
-    "inputsInline": true,
-    "output": "Boolean",
-    "colour": "#ffa800"
   }
 ]);
 
@@ -1457,8 +937,32 @@ Blockly.JavaScript['controls_repeat_ext'] = function(block) {
 };
 
 
+var dcolor = {
+  "E1FFFFFF":"E1FFFFFF", 
+  "E1FF0000":"E1FF0000", 
+  "E1FFFF00":"E1FFFF00", 
+  "E100FF00":"E100FF00", 
+  "E10000FF":"E10000FF", 
+  "E1A51DC0":"E1FF00FF", 
+  "E1FF491C":"E1FF32FF", 
+  "E1FF99AC":"E1FF3C82", 
+  "E158C0FF":"E100FFFF", 
+  "E184FF84":"E132FF28", 
+  "E19292FF":"E19696FF", 
+  "E139A0FF":"E10078FF", 
+  "E1A4FF23":"E196FF00", 
+  "E1B04B2D":"E1FF5014", 
+  "E1B844D2":"E1FF3CA0", 
+  "E1EB2269":"E1FF001E", 
+  "E1FF9282":"E1460000", 
+  "E1FFFF82":"E1AAB400", 
+  "E126C4B8":"E100FF32", 
+  "E1FF9E2D":"E1FF5500"
+}
+
 Blockly.JavaScript['dengg1'] = function(block) {
-  var C = block.getFieldValue('C').replace("#","E1");
+  var cvalue = block.getFieldValue('C').replace("#","E1");
+  var C = dcolor[cvalue] ;
   var T = Number(block.getFieldValue('T'));
 
   var code = 'waitForSeconds(.2);action("' +C+ '");waitForSeconds('+T+');action("E1000000");';
@@ -1466,7 +970,8 @@ Blockly.JavaScript['dengg1'] = function(block) {
 };
 
 Blockly.JavaScript['dengg2'] = function(block) {
-  var C = block.getFieldValue('C').replace("#","E1");
+  var cvalue = block.getFieldValue('C').replace("#","E1");
+  var C = dcolor[cvalue]
   var code = ';waitForSeconds(.2);action("' +C+ '");';
   return code;
 };
@@ -1478,37 +983,14 @@ Blockly.JavaScript['dengg3'] = function(block) {
 
 Blockly.JavaScript['shengy1'] = function(block) {
   var M = block.getFieldValue('M');
-  var code = ';waitForSeconds(.2);action("'+M+'");'
+  var S = block.getFieldValue('S');
+  S = ['','B1214FFF','B1219FFF','B121EFFF'][S] ;
+  var code = ';waitForSeconds(.2);action("'+S+'");waitForSeconds(.2);action("'+M+'");'
   return code;
 };
 
 Blockly.JavaScript['shengy2'] = function(block) {
-  var S = block.getFieldValue('S');
-  S = ['','B1214FFF','B1219FFF','B121EFFF'][S] ;
-  var code = ';waitForSeconds(.2);action("'+S+'");'
-  return code;
-};
-
-
-Blockly.JavaScript['shengy3'] = function(block) {
   var code = ';waitForSeconds(.2);action("B13FFFFF");';
-  return code;
-};
-
-Blockly.JavaScript['shengy4'] = function(block) {
-  var M = block.getFieldValue('M');
-  var S = block.getFieldValue('S');
-  S = ['','B1214FFF','B1219FFF','B121EFFF'][S] ;
-  var code = ';waitForSeconds(.2);action("'+M+'");;waitForSeconds(.2);action("'+S+'");';
-  return code;
-};
-
-Blockly.JavaScript['shengy5'] = function(block) {
-  var M = block.getFieldValue('M');
-  var S = block.getFieldValue('S');
-  var T = Number(block.getFieldValue('T'));
-  S = ['','B1214FFF','B1219FFF','B121EFFF'][S] ;
-  var code = ';waitForSeconds(.2);action("'+M+'");waitForSeconds(.2);action("'+S+'");waitForSeconds('+T+');action("B13FFFFF");';
   return code;
 };
 
@@ -1543,83 +1025,6 @@ var machineAcode = [
     ["F10196FF","F101C8FF","F101FEFF"],
     ["F10296FF","F102C8FF","F102FEFF"]
   ] ;
-
-
-Blockly.JavaScript['controls_if'] = function(block) {
-  // If/elseif/else condition.
-  var code = '', branchCode, conditionCode;
-  
-    conditionCode = Blockly.JavaScript.statementToCode(block, 'IF0') || 'false';
-    branchCode = Blockly.JavaScript.statementToCode(block, 'DO');
-    code = 'if (' + conditionCode + ') {\n' + branchCode + '}';
-  
-
-    if (block.getInput('ELSE')) {
-      branchCode = Blockly.JavaScript.statementToCode(block, 'ELSE');
-      code += ' else {\n' + branchCode + '}';
-    }
-    return code + '\n';
-};
-
-Blockly.JavaScript['controls_ifelse'] = Blockly.JavaScript['controls_if'];
-
-Blockly.JavaScript['logic_compare'] = function(block) {
-  // Comparison operator.
-  var OPERATORS = {
-    'EQ': '==',
-    'NEQ': '!=',
-    'LT': '<',
-    'LTE': '<=',
-    'GT': '>',
-    'GTE': '>='
-  };
-  var operator = OPERATORS[block.getFieldValue('OP')];
-  // var order = (operator == '==' || operator == '!=') ?
-  //     Blockly.JavaScript.ORDER_EQUALITY : Blockly.JavaScript.ORDER_RELATIONAL;
-  var argument0 = Blockly.JavaScript.statementToCode(block, 'A') || '0';
-  var argument1 = Blockly.JavaScript.statementToCode(block, 'B') || '0';
-  var code = argument0 + ' ' + operator + ' ' + argument1;
-  return code ;
-};
-
-Blockly.JavaScript['logic_compare1'] = function(block) {
-  // Comparison operator.
-  var OPERATORS = {
-    'LT': '<',
-    'GT': '>'
-  };
-  var operator = OPERATORS[block.getFieldValue('OP')];
-  // var order = (operator == '==' || operator == '!=') ?
-  //     Blockly.JavaScript.ORDER_EQUALITY : Blockly.JavaScript.ORDER_RELATIONAL;
-  var argument0 = '(function(){setGlobal("logic3-ZH04FFFFFW-0") ;waitForSeconds(.2); return getGlobal("logic3") })()';
-  var argument1 = Number(block.getFieldValue('T')) || '0';
-  var code = argument0 + ' ' + operator + ' ' + argument1;
-  return code ;
-};
-
-Blockly.JavaScript['logic_boolean'] = function() {
-  return '(function(){setGlobal("logic-ZH02FFFFFW-false") ;waitForSeconds(.2); return getGlobal("logic") })()'
-}
-
-Blockly.JavaScript['logic_boolean1'] = function() {
-  return '(function(){setGlobal("logic1-ZH01FFFFFW-false") ;waitForSeconds(.2); return getGlobal("logic1") })()'
-}
-
-Blockly.JavaScript['logic_boolean2'] = function() {
-  return '(function(){setGlobal("logic2-ZH03FFFFFW-0") ;waitForSeconds(.2); return getGlobal("logic2") })()'
-}
-
-Blockly.JavaScript['logic_boolean3'] = function() {
-  return '(function(){setGlobal("logic3-ZH04FFFFFW-0") ;waitForSeconds(.2); return getGlobal("logic3") })()'
-}
-Blockly.JavaScript['logic_boolean3_other'] = function() {
-  return '(function(){setGlobal("logic3-ZH04FFFFFW-0") ;waitForSeconds(.2); return getGlobal("logic3") })()'
-}
-
-Blockly.JavaScript['logic_boolean4'] = function() {
-  return '(function(){setGlobal("logic4-ZH04FFFFFW-false") ;waitForSeconds(.2); return getGlobal("logic4") })()'
-}
-
 Blockly.JavaScript['machineA1'] = function(block) {
   var D = Number(block.getFieldValue('D'));
   var S = Number(block.getFieldValue('S'));
@@ -1627,7 +1032,6 @@ Blockly.JavaScript['machineA1'] = function(block) {
   var code = ';waitForSeconds(.2);action("'+machineAcode[D][S-1]+'");waitForSeconds('+T+');action("F103FFFF");';
   return code;
 };
-
 Blockly.JavaScript['machineA2'] = function(block) {
   var D = Number(block.getFieldValue('D'));
   var S = Number(block.getFieldValue('S'));
@@ -1662,10 +1066,6 @@ Blockly.JavaScript['machineB3'] = function(block) {
 };
 
 Blockly.JavaScript['machineAB'] = function(block) {
-  var code = ';waitForSeconds(.2);action("A2FFFFFF");';
-  return code;
-};
-Blockly.JavaScript['machineAB1'] = function(block) {
   var code = ';waitForSeconds(.2);action("A2FFFFFF");';
   return code;
 };

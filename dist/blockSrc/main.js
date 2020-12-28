@@ -104,11 +104,27 @@
       visible: false,
       callback: "",
       ready: false,
-      list: ["E11EBCAF", "E131F6C6", "E159BC76", "E164FFF2", "E1357AB7",
-        "E11588EC", "E1A4B3FD", "E170DC22", "E1AD4422", "E1C71F8B",
-        "E1CB5621", "E1CC3EA5", "E1D4A4FD", "E1A7529E", "E1DF173A",
-        "E1EA368D", "E1F3FF4D", "E1FA9727", "E1FDA4E1", "E1FF7B44",
-        "E1FF45CC", "E1FF561F", "E1FFA681", "E1FFDB00"
+      list: [
+        "E1FFFFFF", 
+        "E1FF0000", 
+        "E1FFFF00", 
+        "E100FF00", 
+        "E10000FF", 
+        "E1A51DC0", 
+        "E1FF491C", 
+        "E1FF99AC", 
+        "E158C0FF", 
+        "E184FF84", 
+        "E19292FF", 
+        "E139A0FF", 
+        "E1A4FF23", 
+        "E1B04B2D", 
+        "E1B844D2", 
+        "E1EB2269", 
+        "E1FF9282", 
+        "E1FFFF82", 
+        "E126C4B8", 
+        "E1FF9E2D"
       ]
     },
     computed: {
@@ -164,7 +180,7 @@
       list: [
       { type: "ssg", num: 10 },
       { type: "sjt", num: 14 }, 
-      { type: "sbq", num: 12 }, 
+      { type: "sbq", num: 19 }, 
       { type: "sfz", num: 12 }, 
       { type: "ssw", num: 8 }, 
       { type: "snum", num: 26 },
@@ -716,6 +732,11 @@
       generateCodeAndLoadIntoInterpreter() ;
       var safe = true ;//是否安全
       machineAcode.toString().split(",").forEach(function(item){
+        if(latestCode.indexOf(item)!=-1){
+          safe = false ;
+        }
+      }) ;
+      machineBcode.toString().split(",").forEach(function(item){
         if(latestCode.indexOf(item)!=-1){
           safe = false ;
         }

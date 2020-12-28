@@ -208,30 +208,26 @@ html{font-size:41.66666667px}
 .cha{height:.8rem;width:.8rem;background-image:url(../img/cha.png);}
 .icon{background-size:contain;background-repeat: no-repeat;background-position: center center;display: inline-block;}
 
- .scolor1{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor1.png);}
- .scolor2{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor2.png);}
- .scolor3{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor3.png);}
- .scolor4{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor4.png);}
- .scolor5{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor5.png);}
- .scolor6{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor6.png);}
- .scolor7{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor7.png);}
- .scolor8{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor8.png);}
- .scolor9{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor9.png);}
-.scolor10{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor10.png);}
-.scolor11{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor11.png);}
-.scolor12{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor12.png);}
-.scolor13{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor13.png);}
-.scolor14{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor14.png);}
-.scolor15{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor15.png);}
-.scolor16{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor16.png);}
-.scolor17{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor17.png);}
-.scolor18{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor18.png);}
-.scolor19{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor19.png);}
-.scolor20{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor20.png);}
-.scolor21{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor21.png);}
-.scolor22{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor22.png);}
-.scolor23{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor23.png);}
-.scolor24{height:.3rem;width:.42rem;background-image:url(../img/icon/scolor24.png);}
+ .scolor1{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor1.png);}
+ .scolor2{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor2.png);}
+ .scolor3{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor3.png);}
+ .scolor4{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor4.png);}
+ .scolor5{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor5.png);}
+ .scolor6{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor6.png);}
+ .scolor7{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor7.png);}
+ .scolor8{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor8.png);}
+ .scolor9{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor9.png);}
+.scolor10{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor10.png);}
+.scolor11{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor11.png);}
+.scolor12{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor12.png);}
+.scolor13{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor13.png);}
+.scolor14{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor14.png);}
+.scolor15{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor15.png);}
+.scolor16{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor16.png);}
+.scolor17{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor17.png);}
+.scolor18{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor18.png);}
+.scolor19{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor19.png);}
+.scolor20{height:.3rem;width:.7rem !important;background-image:url(../img/icon/scolor20.png);}
 .sdw1{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sdw1.png);}
 .sdw2{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sdw2.png);}
 .sdw3{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sdw3.png);}
