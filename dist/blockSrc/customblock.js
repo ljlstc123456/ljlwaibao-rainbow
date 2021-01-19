@@ -71,14 +71,14 @@ var soundCode = {
     ["圣诞歌",       "B1115003"],
     ["国歌",         "B1115007"],
     ["钢琴曲致爱丽丝",       "B1115008"],
-    ["小跳蛙 ","B110200A"],
-    ["小星星 ","B110200B"],
-    ["我是一条小青龙 ","B110200C"],
-    ["小老鼠上灯台  ","B110200D"],
-    ["一只哈巴狗 ","B110200E"],
-    ["你笑起来真好看 ","B110200F"],
-    ["大风车 ","B1102010"],
-    ["洋娃娃和小熊跳舞  ","B1102011"]
+    ["小跳蛙","B110200A"],
+    ["小星星","B110200B"],
+    ["我是一条小青龙","B110200C"],
+    ["小老鼠上灯台","B110200D"],
+    ["一只哈巴狗","B110200E"],
+    ["你笑起来真好看","B110200F"],
+    ["大风车","B1102010"],
+    ["洋娃娃和小熊跳舞","B1102011"]
   ],
   sjtt:[
     ["警车","B1116001"],
@@ -154,13 +154,20 @@ var imgCode = {
     ["微笑",     "C106009F"],
     ["奔跑",     "C10600AF"],
     ["大白",     "C10600BF"],
-    ["表情1",    "C103000F"],
-    ["表情2",    "C103001F"],
-    ["表情3",    "C103002F"],
-    ["表情4",    "C103003F"],
-    ["表情5",    "C103004F"],
-    ["表情6",    "C103005F"],
-    ["表情7",    "C103006F"]
+    ["搞怪",    "C103000F"],
+    ["害羞",    "C103001F"],
+    ["坏笑",    "C103002F"],
+    ["发呆",    "C103003F"],
+    ["受伤",    "C103004F"],
+    ["紧张",    "C103005F"],
+    ["开心",    "C103006F"],
+    ["叹号","C10600CF"],
+    ["加号","C10600DF"],
+    ["减号","C10600EF"],
+    ["左","C10600FF"],
+    ["右","C106010F"],
+    ["上","C106011F"],
+    ["下","C106012F"]
   ],
   sfz: [
     ["体恤",   "C10400AF"],
@@ -452,7 +459,7 @@ Blockly.defineBlocksWithJsonArray([{
       {
         "type": "field_colour",
         "name": "C",
-        "colour": "#ffffff"
+        "colour": "#FFFFFF"
       }
     ],
     "previousStatement": null,
@@ -954,7 +961,7 @@ var dcolor = {
   "E100FF00":"E100FF00", 
   "E10000FF":"E10000FF", 
   "E1A51DC0":"E1FF00FF", 
-  "E1FF491C":"E1FF32FF", 
+  "E1FF491C":"E1FF3200", 
   "E1FF99AC":"E1FF3C82", 
   "E158C0FF":"E100FFFF", 
   "E184FF84":"E132FF28", 
@@ -972,7 +979,7 @@ var dcolor = {
 
 Blockly.JavaScript['dengg1'] = function(block) {
   var cvalue = block.getFieldValue('C').replace("#","E1");
-  var C = dcolor[cvalue] ;
+  var C = dcolor[cvalue.toUpperCase()] ;
   var T = Number(block.getFieldValue('T'));
 
   var code = 'waitForSeconds(.2);action("' +C+ '");waitForSeconds('+T+');action("E1000000");';
@@ -981,7 +988,7 @@ Blockly.JavaScript['dengg1'] = function(block) {
 
 Blockly.JavaScript['dengg2'] = function(block) {
   var cvalue = block.getFieldValue('C').replace("#","E1");
-  var C = dcolor[cvalue]
+  var C = dcolor[cvalue.toUpperCase()]
   var code = ';waitForSeconds(.2);action("' +C+ '");';
   return code;
 };

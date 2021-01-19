@@ -41,6 +41,7 @@ window.Tool = {
 } ;
 
 window.action = function(code){
+  console.log(code) ;
   sendNative({
       "action":"send",
       "params":JSON.stringify({

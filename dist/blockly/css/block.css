@@ -192,6 +192,9 @@ html{font-size:41.66666667px}
 	right: 1.5rem;
 	bottom: auto;
 }
+#playBtn{
+	right: 220px;
+}
 .menu1{height:.75rem;width:.75rem;background-image:url(../img/menu1.png);}
 .menu2{height:.75rem;width:.75rem;background-image:url(../img/menu2.png);}
 .menu3{height:.75rem;width:.75rem;background-image:url(../img/menu3.png);}
@@ -386,8 +389,6 @@ html{font-size:41.66666667px}
 .sbq24{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sbq24.png);}
 .sbq25{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sbq25.png);}
 .sbq26{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sbq26.png);}
-.sbq27{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sbq27.png);}
-.sbq28{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sbq28.png);}
 
 .sfz1{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sfz1.png);}
 .sfz2{height:1.18rem;width:1.18rem;background-image:url(../img/icon/sfz2.png);}
@@ -464,6 +465,7 @@ html{font-size:41.66666667px}
 .smenu12{height:.34rem;width:.46rem;background-image:url(../img/icon/smenu12.png);}
 .smenu13{height:.34rem;width:.46rem;background-image:url(../img/icon/smenu13.png);}
 .smenu14{height:.34rem;width:.46rem;background-image:url(../img/icon/smenu14.png);}
+.smenu15{height:.34rem;width:.46rem;background-image:url(../img/icon/smenu15.png);}
 
 .animated {
   -webkit-animation-duration:.5s;

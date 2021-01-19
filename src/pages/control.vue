@@ -37,7 +37,9 @@
       <div class="placehold">
         <i class="icon stopboth" v-tap="{ handler:sendCode, params:['A2FFFFFF',-1,'machineAB']}"></i>
       </div>
-      <div class="placehold"></div>
+      <div class="placehold">
+        <i class="icon getgame" @click="go('/home/control/game')"></i>
+      </div>
     </div>
     <div class="line">
       <i class="icon b1" :class="machineBIndex==0?'active':''" v-tap="{ handler:sendMachine, params:['G10196FF',0,'machineBIndex']}"></i>
@@ -87,6 +89,7 @@ export default {
     // jheader
   },
   beforeDestroy(){
+    console.log(1) ;
     resetMachine();
   },
   methods:{

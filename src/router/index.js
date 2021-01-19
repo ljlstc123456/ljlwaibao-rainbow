@@ -6,6 +6,7 @@ Vue.use(Router);
 import home  from '@/pages/home'
 import homem  from '@/pages/homem' 
 import control  from '@/pages/control'
+import game  from '@/pages/game'
 import moreColor from '@/pages/moreColor'
 import moreMusic  from '@/pages/moreMusic'
 import moreImg  from '@/pages/moreImg'
@@ -41,6 +42,12 @@ export default new Router({
       name: 'control',
       component: control,
       meta: { title: '控制模式'}
+    },
+    {
+      path: '/home/control/game',
+      name: 'game',
+      component: game,
+      meta: { title: '游戏模式'}
     },
     {
       path: '/home/control/moreColor',

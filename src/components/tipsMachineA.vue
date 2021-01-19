@@ -77,7 +77,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 11;
   .people{
      position: absolute;
      background-image:url(../../static/imgs/dialogp.png);

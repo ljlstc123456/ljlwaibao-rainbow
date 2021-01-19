@@ -180,7 +180,7 @@
       list: [
       { type: "ssg", num: 10 },
       { type: "sjt", num: 14 }, 
-      { type: "sbq", num: 19 }, 
+      { type: "sbq", num: 26 }, 
       { type: "sfz", num: 12 }, 
       { type: "ssw", num: 8 }, 
       { type: "snum", num: 26 },
@@ -251,10 +251,10 @@
   window.selectMusic = new Vue({
     el: '#musicSelect',
     data: {
-      list: [{ type: "sdw", num: 23 }, { type: "syin", num: 21 }, { type: "sdh", num: 29 }, { type: "sjtt", num: 11 },{type:"ssh",num:6}],
+      list: [{ type: "sdw", num: 23 }, { type: "syin", num: 21 }, { type: "sdh", num: 29 }, { type: "syx", num: 7 },{ type: "sjtt", num: 11 },{type:"ssh",num:6}],
       select: 0,
       active: 0,
-      classIcon: ["smenu4", "smenu9", "smenu6", "smenu10","smenu14"],
+      classIcon: ["smenu4", "smenu9", "smenu6","smenu15", "smenu10","smenu14"],
       visible: false,
       callback: "",
       ready: false,
@@ -725,7 +725,6 @@
 
     cb&&cb.apply() ;
   }
-  
 
   function runPrev(){
     if (!myInterpreter) {
@@ -755,7 +754,7 @@
     playMusic() ;
 
     if (!myInterpreter) {
-      $("#playBtn").addClass("pause").removeClass("play") ;
+      //$("#playBtn").addClass("pause").removeClass("play") ;
       generateCodeAndLoadIntoInterpreter();
       // First statement of this code.
       // Clear the program output.
@@ -784,6 +783,7 @@
               //outputArea.value += '\n\n<< Program complete >>';
               //$("#playBtn").addClass("play").removeClass("pause") ;
               resetInterpreter();
+              //window.action("A1FFFFFF") ;
               //resetStepUi(false);
             }
           }
@@ -793,6 +793,7 @@
       return;
     }else{
       resetInterpreter() ;
+      //window.action("A1FFFFFF") ;
       //$("#playBtn").addClass("play").removeClass("pause") ;
     }
   }
