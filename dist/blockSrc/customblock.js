@@ -861,6 +861,41 @@ Blockly.defineBlocksWithJsonArray([{
     "colour": "#E8504D"
   },
   {
+    "type": "controls_repeat",
+    "message0": "%2重复执行%1",
+    "args0": [{
+        "type": "field_image",
+        "src": "./img/block.png",
+        "name": "TIMES",
+        "value": 1,
+        "width": 1,
+        "height": 30
+    }
+    ,
+     {
+        "type": "field_image",
+        "src": "./img/control2.png",
+        "width": 30,
+        "height": 30
+      }
+    ],
+    "message1": "%2 %1",
+    "args1": [{
+        "type": "input_statement",
+        "name": "DO"
+      },
+      {
+        "type": "field_image",
+        "src": "./img/block.png",
+        "width": 1,
+        "height": 30
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E8504D"
+  },
+  {
     "type": "controls_repeat_ext",
     "message0": "%2重复执行%1次",
     "args0": [{
