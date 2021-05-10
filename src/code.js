@@ -602,7 +602,7 @@ export default  {
 		"B110801A"
 	],
 	dw:[
-	  "B1103001",//斑马
+	  "B1103001",//马
       "B1103002",//豹子
       "B1103003",//大象
       "B1103004",//公鸡
@@ -618,12 +618,11 @@ export default  {
       "B110300E",//狮子
       "B1104001",//熊猫
       "B1104002",//猪  
-      "B1104003",//鸭子
-      "B1104004",//母鸡下蛋
+      "B110400A",//鸭子
+      "B110400B",//母鸡下蛋
       "B1104005",//鸟叫
       "B1104006",//鹰
       "B1104007",//青蛙
-      "B1104008",//马
       "B1104009"//恐龙
 	],
 	jtt:[
@@ -711,7 +710,7 @@ export default  {
 	  "B1102007",//英雄联盟
 	],
 	texthanzi:["一","二","三","四","五","六","七","八","九","十","木","禾","上","下","土","个","入","大","天","人","火","文","儿","无","口","日","中","了","子","门","月","不","开","目","耳", "头","米","见","白","田","电","也","长","山","出","飞","马","鸟","云","公","车","牛","羊","小","少","巾","牙","尺","毛","卜","又","心","风","力","手","水","广","升","足","走","方", "半","巴","业","本","平","书","自","已","东","西","回","片","皮","生","里","果","几","用","鱼","今","正","雨","两","瓜","衣","来","年","左","右"],
-	textpinyin:["yi",'er','san','si','wu','liu','qi','ba','jiu','shi','mu','he','shang','xia','tu','ge','ru','da','tian','ren','huo','wen','er','wu','kou','ri','zhong','le','zi','men','yue','bu','kai','mu','er','tou','mi','jian','bai','tian','dian','ye','chang','shan','chu','fei','ma','niao','yun','gong','che','niu','yang','xiao','shao','jin','ya','chi','mao','bo','you','xin','feng','li','shou','shui','guang','sheng','zu','zou','fang','ban','ba','ye','ben','ping','shu','zi','ji','dong','xi','hui','pian','pi','sheng','li','guo','ji','yong','yu','jin','zheng','yu','liang','gua','yi','lai','nian','zuo','you'],
+	textpinyin:["yi",'er','san','si','wu','liu','qi','ba','jiu','shi','mu','he','shang','xia','tu','ge','ru','da','tian','ren','huo','wen','er','wu','kou','ri','zhong','le','zi','men','yue','bu','kai','mu','er','tou','mi','jian','bai','tian','dian','ye','chang','shan','chu','fei','ma','niao','yun','gong','che','niu','yang','xiao','shao','jin','ya','chi','mao','bo','you','xin','feng','li','shou','shui','guang','sheng','zu','zou','fang','ban','ba','ye','ben','ping','shu','zi','yi','dong','xi','hui','pian','pi','sheng','li','guo','ji','yong','yu','jin','zheng','yu','liang','gua','yi','lai','nian','zuo','you'],
 	textyinyu:["bike","bus","car","plane","ship","train","truck","barber","boy","daddy","dancer","doctor","driver","girl","mummy","nurse","pupil","singer","teacher","bear","cat","cock","dog","duck","hen","rabbit","tiger","black","blue","brown","green","pink","red","white","yellow","bed","bookcase","cabinet","chair","desk","sofa","stool","table"],
 	textyinbiao:["[baɪk]",
 "[bʌs]",

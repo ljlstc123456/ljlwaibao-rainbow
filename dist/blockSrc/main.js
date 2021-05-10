@@ -251,7 +251,7 @@
   window.selectMusic = new Vue({
     el: '#musicSelect',
     data: {
-      list: [{ type: "sdw", num: 23 }, { type: "syin", num: 21 }, { type: "sdh", num: 29 }, { type: "syx", num: 7 },{ type: "sjtt", num: 11 },{type:"ssh",num:6}],
+      list: [{ type: "sdw", num: 22 }, { type: "syin", num: 21 }, { type: "sdh", num: 29 }, { type: "syx", num: 7 },{ type: "sjtt", num: 11 },{type:"ssh",num:6}],
       select: 0,
       active: 0,
       classIcon: ["smenu4", "smenu9", "smenu6","smenu15", "smenu10","smenu14"],

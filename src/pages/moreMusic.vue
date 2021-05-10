@@ -69,7 +69,7 @@ export default {
 
   },
   created() {
-    for (let i = 1; i <= 23; ++i) {
+    for (let i = 1; i <= 22; ++i) {
       this.active1Arr.push(require(`../../static/imgs/control/dongw${i}.png`))
     }
     for (let i = 1; i <= 21; ++i) {
